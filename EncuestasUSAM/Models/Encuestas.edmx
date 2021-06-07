@@ -1,0 +1,1432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ENCUESTASUSAMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ALUMNOS">
+          <Key>
+            <PropertyRef Name="ID_ALUMNO" />
+          </Key>
+          <Property Name="ID_ALUMNO" Type="int" Nullable="false" />
+          <Property Name="CARNET" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="PERSONA" Type="int" Nullable="false" />
+          <Property Name="CARRERA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CARRERA">
+          <Key>
+            <PropertyRef Name="ID_CARRERA" />
+          </Key>
+          <Property Name="ID_CARRERA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE_CARRERA" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FACULTAD" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CICLO">
+          <Key>
+            <PropertyRef Name="ID_CICLO" />
+          </Key>
+          <Property Name="ID_CICLO" Type="int" Nullable="false" />
+          <Property Name="COD_CICLO" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DOCENTE" Type="int" Nullable="false" />
+          <Property Name="MATERIA" Type="int" Nullable="false" />
+          <Property Name="FECHA_INICIO" Type="datetime" Nullable="false" />
+          <Property Name="FECHA_FIN" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CICLO_CARRERA">
+          <Key>
+            <PropertyRef Name="ID_CICLO_CARRERA" />
+          </Key>
+          <Property Name="ID_CICLO_CARRERA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CICLO" Type="int" Nullable="false" />
+          <Property Name="ID_CARRERA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COORDINADOR">
+          <Key>
+            <PropertyRef Name="ID_COORDINADOR" />
+          </Key>
+          <Property Name="ID_COORDINADOR" Type="int" Nullable="false" />
+          <Property Name="FECHA_INGRESO" Type="date" Nullable="false" />
+          <Property Name="PERSONA" Type="int" Nullable="false" />
+          <Property Name="FACULTAD" Type="int" Nullable="false" />
+          <Property Name="PROFESION" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="ID_DEPARTAMENTO" />
+          </Key>
+          <Property Name="ID_DEPARTAMENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE_DEPARTAMENTO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DISENIO_INVESTIGACION">
+          <Key>
+            <PropertyRef Name="ID_DISENIO" />
+          </Key>
+          <Property Name="ID_DISENIO" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_DISENIO" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DOCENTE">
+          <Key>
+            <PropertyRef Name="ID_DOCENTE" />
+          </Key>
+          <Property Name="ID_DOCENTE" Type="int" Nullable="false" />
+          <Property Name="FECHA_INGRESO" Type="date" Nullable="false" />
+          <Property Name="PERSONA" Type="int" Nullable="false" />
+          <Property Name="FACULTAD" Type="int" Nullable="false" />
+          <Property Name="PROFESION" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FACULTAD">
+          <Key>
+            <PropertyRef Name="ID_FACULTAD" />
+          </Key>
+          <Property Name="ID_FACULTAD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE_FACULTAD" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GRUPO_ALUMNO">
+          <Key>
+            <PropertyRef Name="ID_GRUPO_ALUMNO" />
+          </Key>
+          <Property Name="ID_GRUPO_ALUMNO" Type="int" Nullable="false" />
+          <Property Name="ID_ALUMNO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MATERIA_ALUMNO">
+          <Key>
+            <PropertyRef Name="ID_MATERIA_ALUMNO" />
+          </Key>
+          <Property Name="ID_MATERIA_ALUMNO" Type="int" Nullable="false" />
+          <Property Name="ID_MATERIA" Type="int" Nullable="false" />
+          <Property Name="ID_ALUMNO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MATERIAS">
+          <Key>
+            <PropertyRef Name="ID_MATERIA" />
+          </Key>
+          <Property Name="ID_MATERIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODIGO_MATERIA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NOMBRE_MATERIA" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CARRERA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="ID_PERSONA" />
+          </Key>
+          <Property Name="ID_PERSONA" Type="int" Nullable="false" />
+          <Property Name="PRIMER_NOMBRE_PERSONA" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="SEGUNDO_NOMBRE_PERSONA" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="PRIMER_APELLIDO_PERSONA" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="SEGUNDO_APELLIDO_PERSONA" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="SEXO" Type="int" Nullable="false" />
+          <Property Name="CORREO_INSTITUCIONAL" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="CORREO_PERSONAL" Type="varchar" MaxLength="150" />
+          <Property Name="DUI" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DEPARTAMENTO" Type="int" Nullable="false" />
+          <Property Name="TELEFONO_FIJO" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TELEFONO_MOVIL" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROFESION">
+          <Key>
+            <PropertyRef Name="ID_PROFESION" />
+          </Key>
+          <Property Name="ID_PROFESION" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_PROFESION" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROYECTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE_PROYECTO" Type="varchar" MaxLength="255" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="255" />
+          <Property Name="ID_TIPO_INVESTIGACION" Type="int" Nullable="false" />
+          <Property Name="ID_MATERIA" Type="int" Nullable="false" />
+          <Property Name="ID_DISENIO_INVESTIGACION" Type="int" Nullable="false" />
+          <Property Name="FECHA_ASIGNACION" Type="datetime" />
+          <Property Name="ID_GRUPO_ALUMNO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ROL_USUARIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE_ROL" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SEXO">
+          <Key>
+            <PropertyRef Name="ID_SEXO" />
+          </Key>
+          <Property Name="ID_SEXO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE_SEXO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_INVESTIGACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE_TIPO_INVESTIGACION" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_USUARIO" Type="varchar" MaxLength="255" />
+          <Property Name="PASSWORD" Type="varbinary" MaxLength="100" />
+          <Property Name="ESTADO_PERMISO" Type="bit" />
+          <Property Name="ID_TIPO_USUARIO" Type="int" />
+          <Property Name="ID_PERSONA_USUARIO" Type="int" />
+        </EntityType>
+        <Association Name="FK__ALUMNOS__CARRERA__47DBAE45">
+          <End Role="CARRERA" Type="Self.CARRERA" Multiplicity="1" />
+          <End Role="ALUMNOS" Type="Self.ALUMNOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARRERA">
+              <PropertyRef Name="ID_CARRERA" />
+            </Principal>
+            <Dependent Role="ALUMNOS">
+              <PropertyRef Name="CARRERA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ALUMNOS__PERSONA__46E78A0C">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="ALUMNOS" Type="Self.ALUMNOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="ID_PERSONA" />
+            </Principal>
+            <Dependent Role="ALUMNOS">
+              <PropertyRef Name="PERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CARRERA__FACULTA__398D8EEE">
+          <End Role="FACULTAD" Type="Self.FACULTAD" Multiplicity="1" />
+          <End Role="CARRERA" Type="Self.CARRERA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACULTAD">
+              <PropertyRef Name="ID_FACULTAD" />
+            </Principal>
+            <Dependent Role="CARRERA">
+              <PropertyRef Name="FACULTAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CICLO__DOCENTE__403A8C7D">
+          <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="1" />
+          <End Role="CICLO" Type="Self.CICLO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCENTE">
+              <PropertyRef Name="ID_DOCENTE" />
+            </Principal>
+            <Dependent Role="CICLO">
+              <PropertyRef Name="DOCENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CICLO__MATERIA__3F466844">
+          <End Role="MATERIAS" Type="Self.MATERIAS" Multiplicity="1" />
+          <End Role="CICLO" Type="Self.CICLO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAS">
+              <PropertyRef Name="ID_MATERIA" />
+            </Principal>
+            <Dependent Role="CICLO">
+              <PropertyRef Name="MATERIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CICLO_CAR__ID_CA__440B1D61">
+          <End Role="CARRERA" Type="Self.CARRERA" Multiplicity="1" />
+          <End Role="CICLO_CARRERA" Type="Self.CICLO_CARRERA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARRERA">
+              <PropertyRef Name="ID_CARRERA" />
+            </Principal>
+            <Dependent Role="CICLO_CARRERA">
+              <PropertyRef Name="ID_CARRERA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CICLO_CAR__ID_CI__4316F928">
+          <End Role="CICLO" Type="Self.CICLO" Multiplicity="1" />
+          <End Role="CICLO_CARRERA" Type="Self.CICLO_CARRERA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CICLO">
+              <PropertyRef Name="ID_CICLO" />
+            </Principal>
+            <Dependent Role="CICLO_CARRERA">
+              <PropertyRef Name="ID_CICLO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COORDINAD__FACUL__30F848ED">
+          <End Role="FACULTAD" Type="Self.FACULTAD" Multiplicity="1" />
+          <End Role="COORDINADOR" Type="Self.COORDINADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACULTAD">
+              <PropertyRef Name="ID_FACULTAD" />
+            </Principal>
+            <Dependent Role="COORDINADOR">
+              <PropertyRef Name="FACULTAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COORDINAD__PERSO__300424B4">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="COORDINADOR" Type="Self.COORDINADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="ID_PERSONA" />
+            </Principal>
+            <Dependent Role="COORDINADOR">
+              <PropertyRef Name="PERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COORDINAD__PROFE__31EC6D26">
+          <End Role="PROFESION" Type="Self.PROFESION" Multiplicity="1" />
+          <End Role="COORDINADOR" Type="Self.COORDINADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESION">
+              <PropertyRef Name="ID_PROFESION" />
+            </Principal>
+            <Dependent Role="COORDINADOR">
+              <PropertyRef Name="PROFESION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOCENTE__FACULTA__35BCFE0A">
+          <End Role="FACULTAD" Type="Self.FACULTAD" Multiplicity="1" />
+          <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACULTAD">
+              <PropertyRef Name="ID_FACULTAD" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="FACULTAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOCENTE__PERSONA__34C8D9D1">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="ID_PERSONA" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="PERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOCENTE__PROFESI__36B12243">
+          <End Role="PROFESION" Type="Self.PROFESION" Multiplicity="1" />
+          <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESION">
+              <PropertyRef Name="ID_PROFESION" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="PROFESION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MATERIA_A__ID_AL__4BAC3F29">
+          <End Role="ALUMNOS" Type="Self.ALUMNOS" Multiplicity="1" />
+          <End Role="MATERIA_ALUMNO" Type="Self.MATERIA_ALUMNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUMNOS">
+              <PropertyRef Name="ID_ALUMNO" />
+            </Principal>
+            <Dependent Role="MATERIA_ALUMNO">
+              <PropertyRef Name="ID_ALUMNO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MATERIA_A__ID_MA__4AB81AF0">
+          <End Role="MATERIAS" Type="Self.MATERIAS" Multiplicity="1" />
+          <End Role="MATERIA_ALUMNO" Type="Self.MATERIA_ALUMNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAS">
+              <PropertyRef Name="ID_MATERIA" />
+            </Principal>
+            <Dependent Role="MATERIA_ALUMNO">
+              <PropertyRef Name="ID_MATERIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MATERIAS__CARRER__3C69FB99">
+          <End Role="CARRERA" Type="Self.CARRERA" Multiplicity="1" />
+          <End Role="MATERIAS" Type="Self.MATERIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARRERA">
+              <PropertyRef Name="ID_CARRERA" />
+            </Principal>
+            <Dependent Role="MATERIAS">
+              <PropertyRef Name="CARRERA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PERSONA__DEPARTA__2D27B809">
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTO">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PERSONA__SEXO__2C3393D0">
+          <End Role="SEXO" Type="Self.SEXO" Multiplicity="1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEXO">
+              <PropertyRef Name="ID_SEXO" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="SEXO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROYECTO__ID_DIS__5629CD9C">
+          <End Role="DISENIO_INVESTIGACION" Type="Self.DISENIO_INVESTIGACION" Multiplicity="1" />
+          <End Role="PROYECTO" Type="Self.PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISENIO_INVESTIGACION">
+              <PropertyRef Name="ID_DISENIO" />
+            </Principal>
+            <Dependent Role="PROYECTO">
+              <PropertyRef Name="ID_DISENIO_INVESTIGACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROYECTO__ID_GRU__571DF1D5">
+          <End Role="GRUPO_ALUMNO" Type="Self.GRUPO_ALUMNO" Multiplicity="1" />
+          <End Role="PROYECTO" Type="Self.PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO_ALUMNO">
+              <PropertyRef Name="ID_GRUPO_ALUMNO" />
+            </Principal>
+            <Dependent Role="PROYECTO">
+              <PropertyRef Name="ID_GRUPO_ALUMNO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROYECTO__ID_MAT__5535A963">
+          <End Role="MATERIAS" Type="Self.MATERIAS" Multiplicity="1" />
+          <End Role="PROYECTO" Type="Self.PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAS">
+              <PropertyRef Name="ID_MATERIA" />
+            </Principal>
+            <Dependent Role="PROYECTO">
+              <PropertyRef Name="ID_MATERIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROYECTO__ID_TIP__5441852A">
+          <End Role="TIPO_INVESTIGACION" Type="Self.TIPO_INVESTIGACION" Multiplicity="1" />
+          <End Role="PROYECTO" Type="Self.PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_INVESTIGACION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PROYECTO">
+              <PropertyRef Name="ID_TIPO_INVESTIGACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USUARIO__ID_PERS__5CD6CB2B">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="ID_PERSONA" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_PERSONA_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USUARIO__ID_TIPO__5BE2A6F2">
+          <End Role="ROL_USUARIO" Type="Self.ROL_USUARIO" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL_USUARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_TIPO_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ENCUESTASUSAMModelStoreContainer">
+          <EntitySet Name="ALUMNOS" EntityType="Self.ALUMNOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CARRERA" EntityType="Self.CARRERA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CICLO" EntityType="Self.CICLO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CICLO_CARRERA" EntityType="Self.CICLO_CARRERA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COORDINADOR" EntityType="Self.COORDINADOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DISENIO_INVESTIGACION" EntityType="Self.DISENIO_INVESTIGACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOCENTE" EntityType="Self.DOCENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FACULTAD" EntityType="Self.FACULTAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GRUPO_ALUMNO" EntityType="Self.GRUPO_ALUMNO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MATERIA_ALUMNO" EntityType="Self.MATERIA_ALUMNO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MATERIAS" EntityType="Self.MATERIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSONA" EntityType="Self.PERSONA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROFESION" EntityType="Self.PROFESION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROYECTO" EntityType="Self.PROYECTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROL_USUARIO" EntityType="Self.ROL_USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEXO" EntityType="Self.SEXO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_INVESTIGACION" EntityType="Self.TIPO_INVESTIGACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ALUMNOS__CARRERA__47DBAE45" Association="Self.FK__ALUMNOS__CARRERA__47DBAE45">
+            <End Role="CARRERA" EntitySet="CARRERA" />
+            <End Role="ALUMNOS" EntitySet="ALUMNOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ALUMNOS__PERSONA__46E78A0C" Association="Self.FK__ALUMNOS__PERSONA__46E78A0C">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="ALUMNOS" EntitySet="ALUMNOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CARRERA__FACULTA__398D8EEE" Association="Self.FK__CARRERA__FACULTA__398D8EEE">
+            <End Role="FACULTAD" EntitySet="FACULTAD" />
+            <End Role="CARRERA" EntitySet="CARRERA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CICLO__DOCENTE__403A8C7D" Association="Self.FK__CICLO__DOCENTE__403A8C7D">
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+            <End Role="CICLO" EntitySet="CICLO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CICLO__MATERIA__3F466844" Association="Self.FK__CICLO__MATERIA__3F466844">
+            <End Role="MATERIAS" EntitySet="MATERIAS" />
+            <End Role="CICLO" EntitySet="CICLO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CICLO_CAR__ID_CA__440B1D61" Association="Self.FK__CICLO_CAR__ID_CA__440B1D61">
+            <End Role="CARRERA" EntitySet="CARRERA" />
+            <End Role="CICLO_CARRERA" EntitySet="CICLO_CARRERA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CICLO_CAR__ID_CI__4316F928" Association="Self.FK__CICLO_CAR__ID_CI__4316F928">
+            <End Role="CICLO" EntitySet="CICLO" />
+            <End Role="CICLO_CARRERA" EntitySet="CICLO_CARRERA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COORDINAD__FACUL__30F848ED" Association="Self.FK__COORDINAD__FACUL__30F848ED">
+            <End Role="FACULTAD" EntitySet="FACULTAD" />
+            <End Role="COORDINADOR" EntitySet="COORDINADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COORDINAD__PERSO__300424B4" Association="Self.FK__COORDINAD__PERSO__300424B4">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="COORDINADOR" EntitySet="COORDINADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COORDINAD__PROFE__31EC6D26" Association="Self.FK__COORDINAD__PROFE__31EC6D26">
+            <End Role="PROFESION" EntitySet="PROFESION" />
+            <End Role="COORDINADOR" EntitySet="COORDINADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOCENTE__FACULTA__35BCFE0A" Association="Self.FK__DOCENTE__FACULTA__35BCFE0A">
+            <End Role="FACULTAD" EntitySet="FACULTAD" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOCENTE__PERSONA__34C8D9D1" Association="Self.FK__DOCENTE__PERSONA__34C8D9D1">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOCENTE__PROFESI__36B12243" Association="Self.FK__DOCENTE__PROFESI__36B12243">
+            <End Role="PROFESION" EntitySet="PROFESION" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MATERIA_A__ID_AL__4BAC3F29" Association="Self.FK__MATERIA_A__ID_AL__4BAC3F29">
+            <End Role="ALUMNOS" EntitySet="ALUMNOS" />
+            <End Role="MATERIA_ALUMNO" EntitySet="MATERIA_ALUMNO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MATERIA_A__ID_MA__4AB81AF0" Association="Self.FK__MATERIA_A__ID_MA__4AB81AF0">
+            <End Role="MATERIAS" EntitySet="MATERIAS" />
+            <End Role="MATERIA_ALUMNO" EntitySet="MATERIA_ALUMNO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MATERIAS__CARRER__3C69FB99" Association="Self.FK__MATERIAS__CARRER__3C69FB99">
+            <End Role="CARRERA" EntitySet="CARRERA" />
+            <End Role="MATERIAS" EntitySet="MATERIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PERSONA__DEPARTA__2D27B809" Association="Self.FK__PERSONA__DEPARTA__2D27B809">
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PERSONA__SEXO__2C3393D0" Association="Self.FK__PERSONA__SEXO__2C3393D0">
+            <End Role="SEXO" EntitySet="SEXO" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROYECTO__ID_DIS__5629CD9C" Association="Self.FK__PROYECTO__ID_DIS__5629CD9C">
+            <End Role="DISENIO_INVESTIGACION" EntitySet="DISENIO_INVESTIGACION" />
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROYECTO__ID_GRU__571DF1D5" Association="Self.FK__PROYECTO__ID_GRU__571DF1D5">
+            <End Role="GRUPO_ALUMNO" EntitySet="GRUPO_ALUMNO" />
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROYECTO__ID_MAT__5535A963" Association="Self.FK__PROYECTO__ID_MAT__5535A963">
+            <End Role="MATERIAS" EntitySet="MATERIAS" />
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROYECTO__ID_TIP__5441852A" Association="Self.FK__PROYECTO__ID_TIP__5441852A">
+            <End Role="TIPO_INVESTIGACION" EntitySet="TIPO_INVESTIGACION" />
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USUARIO__ID_PERS__5CD6CB2B" Association="Self.FK__USUARIO__ID_PERS__5CD6CB2B">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USUARIO__ID_TIPO__5BE2A6F2" Association="Self.FK__USUARIO__ID_TIPO__5BE2A6F2">
+            <End Role="ROL_USUARIO" EntitySet="ROL_USUARIO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ENCUESTASUSAMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ALUMNOS">
+          <Key>
+            <PropertyRef Name="ID_ALUMNO" />
+          </Key>
+          <Property Name="ID_ALUMNO" Type="Int32" Nullable="false" />
+          <Property Name="CARNET" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PERSONA" Type="Int32" Nullable="false" />
+          <Property Name="CARRERA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CARRERA1" Relationship="Self.FK__ALUMNOS__CARRERA__47DBAE45" FromRole="ALUMNOS" ToRole="CARRERA" />
+          <NavigationProperty Name="PERSONA1" Relationship="Self.FK__ALUMNOS__PERSONA__46E78A0C" FromRole="ALUMNOS" ToRole="PERSONA" />
+          <NavigationProperty Name="MATERIA_ALUMNO" Relationship="Self.FK__MATERIA_A__ID_AL__4BAC3F29" FromRole="ALUMNOS" ToRole="MATERIA_ALUMNO" />
+        </EntityType>
+        <EntityType Name="CARRERA">
+          <Key>
+            <PropertyRef Name="ID_CARRERA" />
+          </Key>
+          <Property Name="ID_CARRERA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_CARRERA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FACULTAD" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ALUMNOS" Relationship="Self.FK__ALUMNOS__CARRERA__47DBAE45" FromRole="CARRERA" ToRole="ALUMNOS" />
+          <NavigationProperty Name="FACULTAD1" Relationship="Self.FK__CARRERA__FACULTA__398D8EEE" FromRole="CARRERA" ToRole="FACULTAD" />
+          <NavigationProperty Name="CICLO_CARRERA" Relationship="Self.FK__CICLO_CAR__ID_CA__440B1D61" FromRole="CARRERA" ToRole="CICLO_CARRERA" />
+          <NavigationProperty Name="MATERIAS" Relationship="Self.FK__MATERIAS__CARRER__3C69FB99" FromRole="CARRERA" ToRole="MATERIAS" />
+        </EntityType>
+        <EntityType Name="CICLO">
+          <Key>
+            <PropertyRef Name="ID_CICLO" />
+          </Key>
+          <Property Name="ID_CICLO" Type="Int32" Nullable="false" />
+          <Property Name="COD_CICLO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOCENTE" Type="Int32" Nullable="false" />
+          <Property Name="MATERIA" Type="Int32" Nullable="false" />
+          <Property Name="FECHA_INICIO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FECHA_FIN" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DOCENTE1" Relationship="Self.FK__CICLO__DOCENTE__403A8C7D" FromRole="CICLO" ToRole="DOCENTE" />
+          <NavigationProperty Name="MATERIAS" Relationship="Self.FK__CICLO__MATERIA__3F466844" FromRole="CICLO" ToRole="MATERIAS" />
+          <NavigationProperty Name="CICLO_CARRERA" Relationship="Self.FK__CICLO_CAR__ID_CI__4316F928" FromRole="CICLO" ToRole="CICLO_CARRERA" />
+        </EntityType>
+        <EntityType Name="CICLO_CARRERA">
+          <Key>
+            <PropertyRef Name="ID_CICLO_CARRERA" />
+          </Key>
+          <Property Name="ID_CICLO_CARRERA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CICLO" Type="Int32" Nullable="false" />
+          <Property Name="ID_CARRERA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CARRERA" Relationship="Self.FK__CICLO_CAR__ID_CA__440B1D61" FromRole="CICLO_CARRERA" ToRole="CARRERA" />
+          <NavigationProperty Name="CICLO" Relationship="Self.FK__CICLO_CAR__ID_CI__4316F928" FromRole="CICLO_CARRERA" ToRole="CICLO" />
+        </EntityType>
+        <EntityType Name="COORDINADOR">
+          <Key>
+            <PropertyRef Name="ID_COORDINADOR" />
+          </Key>
+          <Property Name="ID_COORDINADOR" Type="Int32" Nullable="false" />
+          <Property Name="FECHA_INGRESO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PERSONA" Type="Int32" Nullable="false" />
+          <Property Name="FACULTAD" Type="Int32" Nullable="false" />
+          <Property Name="PROFESION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FACULTAD1" Relationship="Self.FK__COORDINAD__FACUL__30F848ED" FromRole="COORDINADOR" ToRole="FACULTAD" />
+          <NavigationProperty Name="PERSONA1" Relationship="Self.FK__COORDINAD__PERSO__300424B4" FromRole="COORDINADOR" ToRole="PERSONA" />
+          <NavigationProperty Name="PROFESION1" Relationship="Self.FK__COORDINAD__PROFE__31EC6D26" FromRole="COORDINADOR" ToRole="PROFESION" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="ID_DEPARTAMENTO" />
+          </Key>
+          <Property Name="ID_DEPARTAMENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_DEPARTAMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK__PERSONA__DEPARTA__2D27B809" FromRole="DEPARTAMENTO" ToRole="PERSONA" />
+        </EntityType>
+        <EntityType Name="DISENIO_INVESTIGACION">
+          <Key>
+            <PropertyRef Name="ID_DISENIO" />
+          </Key>
+          <Property Name="ID_DISENIO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_DISENIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PROYECTO" Relationship="Self.FK__PROYECTO__ID_DIS__5629CD9C" FromRole="DISENIO_INVESTIGACION" ToRole="PROYECTO" />
+        </EntityType>
+        <EntityType Name="DOCENTE">
+          <Key>
+            <PropertyRef Name="ID_DOCENTE" />
+          </Key>
+          <Property Name="ID_DOCENTE" Type="Int32" Nullable="false" />
+          <Property Name="FECHA_INGRESO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PERSONA" Type="Int32" Nullable="false" />
+          <Property Name="FACULTAD" Type="Int32" Nullable="false" />
+          <Property Name="PROFESION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CICLO" Relationship="Self.FK__CICLO__DOCENTE__403A8C7D" FromRole="DOCENTE" ToRole="CICLO" />
+          <NavigationProperty Name="FACULTAD1" Relationship="Self.FK__DOCENTE__FACULTA__35BCFE0A" FromRole="DOCENTE" ToRole="FACULTAD" />
+          <NavigationProperty Name="PERSONA1" Relationship="Self.FK__DOCENTE__PERSONA__34C8D9D1" FromRole="DOCENTE" ToRole="PERSONA" />
+          <NavigationProperty Name="PROFESION1" Relationship="Self.FK__DOCENTE__PROFESI__36B12243" FromRole="DOCENTE" ToRole="PROFESION" />
+        </EntityType>
+        <EntityType Name="FACULTAD">
+          <Key>
+            <PropertyRef Name="ID_FACULTAD" />
+          </Key>
+          <Property Name="ID_FACULTAD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_FACULTAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CARRERA" Relationship="Self.FK__CARRERA__FACULTA__398D8EEE" FromRole="FACULTAD" ToRole="CARRERA" />
+          <NavigationProperty Name="COORDINADOR" Relationship="Self.FK__COORDINAD__FACUL__30F848ED" FromRole="FACULTAD" ToRole="COORDINADOR" />
+          <NavigationProperty Name="DOCENTE" Relationship="Self.FK__DOCENTE__FACULTA__35BCFE0A" FromRole="FACULTAD" ToRole="DOCENTE" />
+        </EntityType>
+        <EntityType Name="GRUPO_ALUMNO">
+          <Key>
+            <PropertyRef Name="ID_GRUPO_ALUMNO" />
+          </Key>
+          <Property Name="ID_GRUPO_ALUMNO" Type="Int32" Nullable="false" />
+          <Property Name="ID_ALUMNO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PROYECTO" Relationship="Self.FK__PROYECTO__ID_GRU__571DF1D5" FromRole="GRUPO_ALUMNO" ToRole="PROYECTO" />
+        </EntityType>
+        <EntityType Name="MATERIA_ALUMNO">
+          <Key>
+            <PropertyRef Name="ID_MATERIA_ALUMNO" />
+          </Key>
+          <Property Name="ID_MATERIA_ALUMNO" Type="Int32" Nullable="false" />
+          <Property Name="ID_MATERIA" Type="Int32" Nullable="false" />
+          <Property Name="ID_ALUMNO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ALUMNOS" Relationship="Self.FK__MATERIA_A__ID_AL__4BAC3F29" FromRole="MATERIA_ALUMNO" ToRole="ALUMNOS" />
+          <NavigationProperty Name="MATERIAS" Relationship="Self.FK__MATERIA_A__ID_MA__4AB81AF0" FromRole="MATERIA_ALUMNO" ToRole="MATERIAS" />
+        </EntityType>
+        <EntityType Name="MATERIAS">
+          <Key>
+            <PropertyRef Name="ID_MATERIA" />
+          </Key>
+          <Property Name="ID_MATERIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODIGO_MATERIA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE_MATERIA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CARRERA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CARRERA1" Relationship="Self.FK__MATERIAS__CARRER__3C69FB99" FromRole="MATERIAS" ToRole="CARRERA" />
+          <NavigationProperty Name="CICLO" Relationship="Self.FK__CICLO__MATERIA__3F466844" FromRole="MATERIAS" ToRole="CICLO" />
+          <NavigationProperty Name="MATERIA_ALUMNO" Relationship="Self.FK__MATERIA_A__ID_MA__4AB81AF0" FromRole="MATERIAS" ToRole="MATERIA_ALUMNO" />
+          <NavigationProperty Name="PROYECTO" Relationship="Self.FK__PROYECTO__ID_MAT__5535A963" FromRole="MATERIAS" ToRole="PROYECTO" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="ID_PERSONA" />
+          </Key>
+          <Property Name="ID_PERSONA" Type="Int32" Nullable="false" />
+          <Property Name="PRIMER_NOMBRE_PERSONA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SEGUNDO_NOMBRE_PERSONA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRIMER_APELLIDO_PERSONA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SEGUNDO_APELLIDO_PERSONA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SEXO" Type="Int32" Nullable="false" />
+          <Property Name="CORREO_INSTITUCIONAL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CORREO_PERSONAL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DUI" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEPARTAMENTO" Type="Int32" Nullable="false" />
+          <Property Name="TELEFONO_FIJO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TELEFONO_MOVIL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ALUMNOS" Relationship="Self.FK__ALUMNOS__PERSONA__46E78A0C" FromRole="PERSONA" ToRole="ALUMNOS" />
+          <NavigationProperty Name="COORDINADOR" Relationship="Self.FK__COORDINAD__PERSO__300424B4" FromRole="PERSONA" ToRole="COORDINADOR" />
+          <NavigationProperty Name="DEPARTAMENTO1" Relationship="Self.FK__PERSONA__DEPARTA__2D27B809" FromRole="PERSONA" ToRole="DEPARTAMENTO" />
+          <NavigationProperty Name="DOCENTE" Relationship="Self.FK__DOCENTE__PERSONA__34C8D9D1" FromRole="PERSONA" ToRole="DOCENTE" />
+          <NavigationProperty Name="SEXO1" Relationship="Self.FK__PERSONA__SEXO__2C3393D0" FromRole="PERSONA" ToRole="SEXO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__USUARIO__ID_PERS__5CD6CB2B" FromRole="PERSONA" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="PROFESION">
+          <Key>
+            <PropertyRef Name="ID_PROFESION" />
+          </Key>
+          <Property Name="ID_PROFESION" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="COORDINADOR" Relationship="Self.FK__COORDINAD__PROFE__31EC6D26" FromRole="PROFESION" ToRole="COORDINADOR" />
+          <NavigationProperty Name="DOCENTE" Relationship="Self.FK__DOCENTE__PROFESI__36B12243" FromRole="PROFESION" ToRole="DOCENTE" />
+        </EntityType>
+        <EntityType Name="PROYECTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_PROYECTO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TIPO_INVESTIGACION" Type="Int32" Nullable="false" />
+          <Property Name="ID_MATERIA" Type="Int32" Nullable="false" />
+          <Property Name="ID_DISENIO_INVESTIGACION" Type="Int32" Nullable="false" />
+          <Property Name="FECHA_ASIGNACION" Type="DateTime" Precision="3" />
+          <Property Name="ID_GRUPO_ALUMNO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DISENIO_INVESTIGACION" Relationship="Self.FK__PROYECTO__ID_DIS__5629CD9C" FromRole="PROYECTO" ToRole="DISENIO_INVESTIGACION" />
+          <NavigationProperty Name="GRUPO_ALUMNO" Relationship="Self.FK__PROYECTO__ID_GRU__571DF1D5" FromRole="PROYECTO" ToRole="GRUPO_ALUMNO" />
+          <NavigationProperty Name="MATERIAS" Relationship="Self.FK__PROYECTO__ID_MAT__5535A963" FromRole="PROYECTO" ToRole="MATERIAS" />
+          <NavigationProperty Name="TIPO_INVESTIGACION" Relationship="Self.FK__PROYECTO__ID_TIP__5441852A" FromRole="PROYECTO" ToRole="TIPO_INVESTIGACION" />
+        </EntityType>
+        <EntityType Name="ROL_USUARIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_ROL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__USUARIO__ID_TIPO__5BE2A6F2" FromRole="ROL_USUARIO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="SEXO">
+          <Key>
+            <PropertyRef Name="ID_SEXO" />
+          </Key>
+          <Property Name="ID_SEXO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_SEXO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK__PERSONA__SEXO__2C3393D0" FromRole="SEXO" ToRole="PERSONA" />
+        </EntityType>
+        <EntityType Name="TIPO_INVESTIGACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_TIPO_INVESTIGACION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PROYECTO" Relationship="Self.FK__PROYECTO__ID_TIP__5441852A" FromRole="TIPO_INVESTIGACION" ToRole="PROYECTO" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_USUARIO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="Binary" MaxLength="100" FixedLength="false" />
+          <Property Name="ESTADO_PERMISO" Type="Boolean" />
+          <Property Name="ID_TIPO_USUARIO" Type="Int32" />
+          <Property Name="ID_PERSONA_USUARIO" Type="Int32" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK__USUARIO__ID_PERS__5CD6CB2B" FromRole="USUARIO" ToRole="PERSONA" />
+          <NavigationProperty Name="ROL_USUARIO" Relationship="Self.FK__USUARIO__ID_TIPO__5BE2A6F2" FromRole="USUARIO" ToRole="ROL_USUARIO" />
+        </EntityType>
+        <Association Name="FK__ALUMNOS__CARRERA__47DBAE45">
+          <End Role="CARRERA" Type="Self.CARRERA" Multiplicity="1" />
+          <End Role="ALUMNOS" Type="Self.ALUMNOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARRERA">
+              <PropertyRef Name="ID_CARRERA" />
+            </Principal>
+            <Dependent Role="ALUMNOS">
+              <PropertyRef Name="CARRERA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ALUMNOS__PERSONA__46E78A0C">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="ALUMNOS" Type="Self.ALUMNOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="ID_PERSONA" />
+            </Principal>
+            <Dependent Role="ALUMNOS">
+              <PropertyRef Name="PERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MATERIA_A__ID_AL__4BAC3F29">
+          <End Role="ALUMNOS" Type="Self.ALUMNOS" Multiplicity="1" />
+          <End Role="MATERIA_ALUMNO" Type="Self.MATERIA_ALUMNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUMNOS">
+              <PropertyRef Name="ID_ALUMNO" />
+            </Principal>
+            <Dependent Role="MATERIA_ALUMNO">
+              <PropertyRef Name="ID_ALUMNO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CARRERA__FACULTA__398D8EEE">
+          <End Role="FACULTAD" Type="Self.FACULTAD" Multiplicity="1" />
+          <End Role="CARRERA" Type="Self.CARRERA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACULTAD">
+              <PropertyRef Name="ID_FACULTAD" />
+            </Principal>
+            <Dependent Role="CARRERA">
+              <PropertyRef Name="FACULTAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CICLO_CAR__ID_CA__440B1D61">
+          <End Role="CARRERA" Type="Self.CARRERA" Multiplicity="1" />
+          <End Role="CICLO_CARRERA" Type="Self.CICLO_CARRERA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARRERA">
+              <PropertyRef Name="ID_CARRERA" />
+            </Principal>
+            <Dependent Role="CICLO_CARRERA">
+              <PropertyRef Name="ID_CARRERA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MATERIAS__CARRER__3C69FB99">
+          <End Role="CARRERA" Type="Self.CARRERA" Multiplicity="1" />
+          <End Role="MATERIAS" Type="Self.MATERIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARRERA">
+              <PropertyRef Name="ID_CARRERA" />
+            </Principal>
+            <Dependent Role="MATERIAS">
+              <PropertyRef Name="CARRERA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CICLO__DOCENTE__403A8C7D">
+          <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="1" />
+          <End Role="CICLO" Type="Self.CICLO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCENTE">
+              <PropertyRef Name="ID_DOCENTE" />
+            </Principal>
+            <Dependent Role="CICLO">
+              <PropertyRef Name="DOCENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CICLO__MATERIA__3F466844">
+          <End Role="MATERIAS" Type="Self.MATERIAS" Multiplicity="1" />
+          <End Role="CICLO" Type="Self.CICLO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAS">
+              <PropertyRef Name="ID_MATERIA" />
+            </Principal>
+            <Dependent Role="CICLO">
+              <PropertyRef Name="MATERIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CICLO_CAR__ID_CI__4316F928">
+          <End Role="CICLO" Type="Self.CICLO" Multiplicity="1" />
+          <End Role="CICLO_CARRERA" Type="Self.CICLO_CARRERA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CICLO">
+              <PropertyRef Name="ID_CICLO" />
+            </Principal>
+            <Dependent Role="CICLO_CARRERA">
+              <PropertyRef Name="ID_CICLO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COORDINAD__FACUL__30F848ED">
+          <End Role="FACULTAD" Type="Self.FACULTAD" Multiplicity="1" />
+          <End Role="COORDINADOR" Type="Self.COORDINADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACULTAD">
+              <PropertyRef Name="ID_FACULTAD" />
+            </Principal>
+            <Dependent Role="COORDINADOR">
+              <PropertyRef Name="FACULTAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COORDINAD__PERSO__300424B4">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="COORDINADOR" Type="Self.COORDINADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="ID_PERSONA" />
+            </Principal>
+            <Dependent Role="COORDINADOR">
+              <PropertyRef Name="PERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COORDINAD__PROFE__31EC6D26">
+          <End Role="PROFESION" Type="Self.PROFESION" Multiplicity="1" />
+          <End Role="COORDINADOR" Type="Self.COORDINADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESION">
+              <PropertyRef Name="ID_PROFESION" />
+            </Principal>
+            <Dependent Role="COORDINADOR">
+              <PropertyRef Name="PROFESION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PERSONA__DEPARTA__2D27B809">
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTO">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROYECTO__ID_DIS__5629CD9C">
+          <End Role="DISENIO_INVESTIGACION" Type="Self.DISENIO_INVESTIGACION" Multiplicity="1" />
+          <End Role="PROYECTO" Type="Self.PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISENIO_INVESTIGACION">
+              <PropertyRef Name="ID_DISENIO" />
+            </Principal>
+            <Dependent Role="PROYECTO">
+              <PropertyRef Name="ID_DISENIO_INVESTIGACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOCENTE__FACULTA__35BCFE0A">
+          <End Role="FACULTAD" Type="Self.FACULTAD" Multiplicity="1" />
+          <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACULTAD">
+              <PropertyRef Name="ID_FACULTAD" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="FACULTAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOCENTE__PERSONA__34C8D9D1">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="ID_PERSONA" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="PERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOCENTE__PROFESI__36B12243">
+          <End Role="PROFESION" Type="Self.PROFESION" Multiplicity="1" />
+          <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESION">
+              <PropertyRef Name="ID_PROFESION" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="PROFESION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROYECTO__ID_GRU__571DF1D5">
+          <End Role="GRUPO_ALUMNO" Type="Self.GRUPO_ALUMNO" Multiplicity="1" />
+          <End Role="PROYECTO" Type="Self.PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO_ALUMNO">
+              <PropertyRef Name="ID_GRUPO_ALUMNO" />
+            </Principal>
+            <Dependent Role="PROYECTO">
+              <PropertyRef Name="ID_GRUPO_ALUMNO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MATERIA_A__ID_MA__4AB81AF0">
+          <End Role="MATERIAS" Type="Self.MATERIAS" Multiplicity="1" />
+          <End Role="MATERIA_ALUMNO" Type="Self.MATERIA_ALUMNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAS">
+              <PropertyRef Name="ID_MATERIA" />
+            </Principal>
+            <Dependent Role="MATERIA_ALUMNO">
+              <PropertyRef Name="ID_MATERIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROYECTO__ID_MAT__5535A963">
+          <End Role="MATERIAS" Type="Self.MATERIAS" Multiplicity="1" />
+          <End Role="PROYECTO" Type="Self.PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAS">
+              <PropertyRef Name="ID_MATERIA" />
+            </Principal>
+            <Dependent Role="PROYECTO">
+              <PropertyRef Name="ID_MATERIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PERSONA__SEXO__2C3393D0">
+          <End Role="SEXO" Type="Self.SEXO" Multiplicity="1" />
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEXO">
+              <PropertyRef Name="ID_SEXO" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="SEXO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USUARIO__ID_PERS__5CD6CB2B">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="ID_PERSONA" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_PERSONA_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROYECTO__ID_TIP__5441852A">
+          <End Role="TIPO_INVESTIGACION" Type="Self.TIPO_INVESTIGACION" Multiplicity="1" />
+          <End Role="PROYECTO" Type="Self.PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_INVESTIGACION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PROYECTO">
+              <PropertyRef Name="ID_TIPO_INVESTIGACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USUARIO__ID_TIPO__5BE2A6F2">
+          <End Role="ROL_USUARIO" Type="Self.ROL_USUARIO" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL_USUARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_TIPO_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ENCUESTASUSAMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ALUMNOS" EntityType="Self.ALUMNOS" />
+          <EntitySet Name="CARRERA" EntityType="Self.CARRERA" />
+          <EntitySet Name="CICLO" EntityType="Self.CICLO" />
+          <EntitySet Name="CICLO_CARRERA" EntityType="Self.CICLO_CARRERA" />
+          <EntitySet Name="COORDINADOR" EntityType="Self.COORDINADOR" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" />
+          <EntitySet Name="DISENIO_INVESTIGACION" EntityType="Self.DISENIO_INVESTIGACION" />
+          <EntitySet Name="DOCENTE" EntityType="Self.DOCENTE" />
+          <EntitySet Name="FACULTAD" EntityType="Self.FACULTAD" />
+          <EntitySet Name="GRUPO_ALUMNO" EntityType="Self.GRUPO_ALUMNO" />
+          <EntitySet Name="MATERIA_ALUMNO" EntityType="Self.MATERIA_ALUMNO" />
+          <EntitySet Name="MATERIAS" EntityType="Self.MATERIAS" />
+          <EntitySet Name="PERSONA" EntityType="Self.PERSONA" />
+          <EntitySet Name="PROFESION" EntityType="Self.PROFESION" />
+          <EntitySet Name="PROYECTO" EntityType="Self.PROYECTO" />
+          <EntitySet Name="ROL_USUARIO" EntityType="Self.ROL_USUARIO" />
+          <EntitySet Name="SEXO" EntityType="Self.SEXO" />
+          <EntitySet Name="TIPO_INVESTIGACION" EntityType="Self.TIPO_INVESTIGACION" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="FK__ALUMNOS__CARRERA__47DBAE45" Association="Self.FK__ALUMNOS__CARRERA__47DBAE45">
+            <End Role="CARRERA" EntitySet="CARRERA" />
+            <End Role="ALUMNOS" EntitySet="ALUMNOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ALUMNOS__PERSONA__46E78A0C" Association="Self.FK__ALUMNOS__PERSONA__46E78A0C">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="ALUMNOS" EntitySet="ALUMNOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MATERIA_A__ID_AL__4BAC3F29" Association="Self.FK__MATERIA_A__ID_AL__4BAC3F29">
+            <End Role="ALUMNOS" EntitySet="ALUMNOS" />
+            <End Role="MATERIA_ALUMNO" EntitySet="MATERIA_ALUMNO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CARRERA__FACULTA__398D8EEE" Association="Self.FK__CARRERA__FACULTA__398D8EEE">
+            <End Role="FACULTAD" EntitySet="FACULTAD" />
+            <End Role="CARRERA" EntitySet="CARRERA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CICLO_CAR__ID_CA__440B1D61" Association="Self.FK__CICLO_CAR__ID_CA__440B1D61">
+            <End Role="CARRERA" EntitySet="CARRERA" />
+            <End Role="CICLO_CARRERA" EntitySet="CICLO_CARRERA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MATERIAS__CARRER__3C69FB99" Association="Self.FK__MATERIAS__CARRER__3C69FB99">
+            <End Role="CARRERA" EntitySet="CARRERA" />
+            <End Role="MATERIAS" EntitySet="MATERIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CICLO__DOCENTE__403A8C7D" Association="Self.FK__CICLO__DOCENTE__403A8C7D">
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+            <End Role="CICLO" EntitySet="CICLO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CICLO__MATERIA__3F466844" Association="Self.FK__CICLO__MATERIA__3F466844">
+            <End Role="MATERIAS" EntitySet="MATERIAS" />
+            <End Role="CICLO" EntitySet="CICLO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CICLO_CAR__ID_CI__4316F928" Association="Self.FK__CICLO_CAR__ID_CI__4316F928">
+            <End Role="CICLO" EntitySet="CICLO" />
+            <End Role="CICLO_CARRERA" EntitySet="CICLO_CARRERA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COORDINAD__FACUL__30F848ED" Association="Self.FK__COORDINAD__FACUL__30F848ED">
+            <End Role="FACULTAD" EntitySet="FACULTAD" />
+            <End Role="COORDINADOR" EntitySet="COORDINADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COORDINAD__PERSO__300424B4" Association="Self.FK__COORDINAD__PERSO__300424B4">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="COORDINADOR" EntitySet="COORDINADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COORDINAD__PROFE__31EC6D26" Association="Self.FK__COORDINAD__PROFE__31EC6D26">
+            <End Role="PROFESION" EntitySet="PROFESION" />
+            <End Role="COORDINADOR" EntitySet="COORDINADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PERSONA__DEPARTA__2D27B809" Association="Self.FK__PERSONA__DEPARTA__2D27B809">
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROYECTO__ID_DIS__5629CD9C" Association="Self.FK__PROYECTO__ID_DIS__5629CD9C">
+            <End Role="DISENIO_INVESTIGACION" EntitySet="DISENIO_INVESTIGACION" />
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOCENTE__FACULTA__35BCFE0A" Association="Self.FK__DOCENTE__FACULTA__35BCFE0A">
+            <End Role="FACULTAD" EntitySet="FACULTAD" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOCENTE__PERSONA__34C8D9D1" Association="Self.FK__DOCENTE__PERSONA__34C8D9D1">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOCENTE__PROFESI__36B12243" Association="Self.FK__DOCENTE__PROFESI__36B12243">
+            <End Role="PROFESION" EntitySet="PROFESION" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROYECTO__ID_GRU__571DF1D5" Association="Self.FK__PROYECTO__ID_GRU__571DF1D5">
+            <End Role="GRUPO_ALUMNO" EntitySet="GRUPO_ALUMNO" />
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MATERIA_A__ID_MA__4AB81AF0" Association="Self.FK__MATERIA_A__ID_MA__4AB81AF0">
+            <End Role="MATERIAS" EntitySet="MATERIAS" />
+            <End Role="MATERIA_ALUMNO" EntitySet="MATERIA_ALUMNO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROYECTO__ID_MAT__5535A963" Association="Self.FK__PROYECTO__ID_MAT__5535A963">
+            <End Role="MATERIAS" EntitySet="MATERIAS" />
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PERSONA__SEXO__2C3393D0" Association="Self.FK__PERSONA__SEXO__2C3393D0">
+            <End Role="SEXO" EntitySet="SEXO" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USUARIO__ID_PERS__5CD6CB2B" Association="Self.FK__USUARIO__ID_PERS__5CD6CB2B">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROYECTO__ID_TIP__5441852A" Association="Self.FK__PROYECTO__ID_TIP__5441852A">
+            <End Role="TIPO_INVESTIGACION" EntitySet="TIPO_INVESTIGACION" />
+            <End Role="PROYECTO" EntitySet="PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USUARIO__ID_TIPO__5BE2A6F2" Association="Self.FK__USUARIO__ID_TIPO__5BE2A6F2">
+            <End Role="ROL_USUARIO" EntitySet="ROL_USUARIO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ENCUESTASUSAMModelStoreContainer" CdmEntityContainer="ENCUESTASUSAMEntities">
+          <EntitySetMapping Name="ALUMNOS">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.ALUMNOS">
+              <MappingFragment StoreEntitySet="ALUMNOS">
+                <ScalarProperty Name="ID_ALUMNO" ColumnName="ID_ALUMNO" />
+                <ScalarProperty Name="CARNET" ColumnName="CARNET" />
+                <ScalarProperty Name="PERSONA" ColumnName="PERSONA" />
+                <ScalarProperty Name="CARRERA" ColumnName="CARRERA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CARRERA">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.CARRERA">
+              <MappingFragment StoreEntitySet="CARRERA">
+                <ScalarProperty Name="ID_CARRERA" ColumnName="ID_CARRERA" />
+                <ScalarProperty Name="NOMBRE_CARRERA" ColumnName="NOMBRE_CARRERA" />
+                <ScalarProperty Name="FACULTAD" ColumnName="FACULTAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CICLO">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.CICLO">
+              <MappingFragment StoreEntitySet="CICLO">
+                <ScalarProperty Name="ID_CICLO" ColumnName="ID_CICLO" />
+                <ScalarProperty Name="COD_CICLO" ColumnName="COD_CICLO" />
+                <ScalarProperty Name="DOCENTE" ColumnName="DOCENTE" />
+                <ScalarProperty Name="MATERIA" ColumnName="MATERIA" />
+                <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+                <ScalarProperty Name="FECHA_FIN" ColumnName="FECHA_FIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CICLO_CARRERA">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.CICLO_CARRERA">
+              <MappingFragment StoreEntitySet="CICLO_CARRERA">
+                <ScalarProperty Name="ID_CICLO_CARRERA" ColumnName="ID_CICLO_CARRERA" />
+                <ScalarProperty Name="ID_CICLO" ColumnName="ID_CICLO" />
+                <ScalarProperty Name="ID_CARRERA" ColumnName="ID_CARRERA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COORDINADOR">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.COORDINADOR">
+              <MappingFragment StoreEntitySet="COORDINADOR">
+                <ScalarProperty Name="ID_COORDINADOR" ColumnName="ID_COORDINADOR" />
+                <ScalarProperty Name="FECHA_INGRESO" ColumnName="FECHA_INGRESO" />
+                <ScalarProperty Name="PERSONA" ColumnName="PERSONA" />
+                <ScalarProperty Name="FACULTAD" ColumnName="FACULTAD" />
+                <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTAMENTO">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.DEPARTAMENTO">
+              <MappingFragment StoreEntitySet="DEPARTAMENTO">
+                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
+                <ScalarProperty Name="NOMBRE_DEPARTAMENTO" ColumnName="NOMBRE_DEPARTAMENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DISENIO_INVESTIGACION">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.DISENIO_INVESTIGACION">
+              <MappingFragment StoreEntitySet="DISENIO_INVESTIGACION">
+                <ScalarProperty Name="ID_DISENIO" ColumnName="ID_DISENIO" />
+                <ScalarProperty Name="NOMBRE_DISENIO" ColumnName="NOMBRE_DISENIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOCENTE">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.DOCENTE">
+              <MappingFragment StoreEntitySet="DOCENTE">
+                <ScalarProperty Name="ID_DOCENTE" ColumnName="ID_DOCENTE" />
+                <ScalarProperty Name="FECHA_INGRESO" ColumnName="FECHA_INGRESO" />
+                <ScalarProperty Name="PERSONA" ColumnName="PERSONA" />
+                <ScalarProperty Name="FACULTAD" ColumnName="FACULTAD" />
+                <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FACULTAD">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.FACULTAD">
+              <MappingFragment StoreEntitySet="FACULTAD">
+                <ScalarProperty Name="ID_FACULTAD" ColumnName="ID_FACULTAD" />
+                <ScalarProperty Name="NOMBRE_FACULTAD" ColumnName="NOMBRE_FACULTAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GRUPO_ALUMNO">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.GRUPO_ALUMNO">
+              <MappingFragment StoreEntitySet="GRUPO_ALUMNO">
+                <ScalarProperty Name="ID_GRUPO_ALUMNO" ColumnName="ID_GRUPO_ALUMNO" />
+                <ScalarProperty Name="ID_ALUMNO" ColumnName="ID_ALUMNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MATERIA_ALUMNO">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.MATERIA_ALUMNO">
+              <MappingFragment StoreEntitySet="MATERIA_ALUMNO">
+                <ScalarProperty Name="ID_MATERIA_ALUMNO" ColumnName="ID_MATERIA_ALUMNO" />
+                <ScalarProperty Name="ID_MATERIA" ColumnName="ID_MATERIA" />
+                <ScalarProperty Name="ID_ALUMNO" ColumnName="ID_ALUMNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MATERIAS">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.MATERIAS">
+              <MappingFragment StoreEntitySet="MATERIAS">
+                <ScalarProperty Name="ID_MATERIA" ColumnName="ID_MATERIA" />
+                <ScalarProperty Name="CODIGO_MATERIA" ColumnName="CODIGO_MATERIA" />
+                <ScalarProperty Name="NOMBRE_MATERIA" ColumnName="NOMBRE_MATERIA" />
+                <ScalarProperty Name="CARRERA" ColumnName="CARRERA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONA">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.PERSONA">
+              <MappingFragment StoreEntitySet="PERSONA">
+                <ScalarProperty Name="ID_PERSONA" ColumnName="ID_PERSONA" />
+                <ScalarProperty Name="PRIMER_NOMBRE_PERSONA" ColumnName="PRIMER_NOMBRE_PERSONA" />
+                <ScalarProperty Name="SEGUNDO_NOMBRE_PERSONA" ColumnName="SEGUNDO_NOMBRE_PERSONA" />
+                <ScalarProperty Name="PRIMER_APELLIDO_PERSONA" ColumnName="PRIMER_APELLIDO_PERSONA" />
+                <ScalarProperty Name="SEGUNDO_APELLIDO_PERSONA" ColumnName="SEGUNDO_APELLIDO_PERSONA" />
+                <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+                <ScalarProperty Name="CORREO_INSTITUCIONAL" ColumnName="CORREO_INSTITUCIONAL" />
+                <ScalarProperty Name="CORREO_PERSONAL" ColumnName="CORREO_PERSONAL" />
+                <ScalarProperty Name="DUI" ColumnName="DUI" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
+                <ScalarProperty Name="TELEFONO_FIJO" ColumnName="TELEFONO_FIJO" />
+                <ScalarProperty Name="TELEFONO_MOVIL" ColumnName="TELEFONO_MOVIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROFESION">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.PROFESION">
+              <MappingFragment StoreEntitySet="PROFESION">
+                <ScalarProperty Name="ID_PROFESION" ColumnName="ID_PROFESION" />
+                <ScalarProperty Name="NOMBRE_PROFESION" ColumnName="NOMBRE_PROFESION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROYECTO">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.PROYECTO">
+              <MappingFragment StoreEntitySet="PROYECTO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE_PROYECTO" ColumnName="NOMBRE_PROYECTO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ID_TIPO_INVESTIGACION" ColumnName="ID_TIPO_INVESTIGACION" />
+                <ScalarProperty Name="ID_MATERIA" ColumnName="ID_MATERIA" />
+                <ScalarProperty Name="ID_DISENIO_INVESTIGACION" ColumnName="ID_DISENIO_INVESTIGACION" />
+                <ScalarProperty Name="FECHA_ASIGNACION" ColumnName="FECHA_ASIGNACION" />
+                <ScalarProperty Name="ID_GRUPO_ALUMNO" ColumnName="ID_GRUPO_ALUMNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL_USUARIO">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.ROL_USUARIO">
+              <MappingFragment StoreEntitySet="ROL_USUARIO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE_ROL" ColumnName="NOMBRE_ROL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEXO">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.SEXO">
+              <MappingFragment StoreEntitySet="SEXO">
+                <ScalarProperty Name="ID_SEXO" ColumnName="ID_SEXO" />
+                <ScalarProperty Name="NOMBRE_SEXO" ColumnName="NOMBRE_SEXO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_INVESTIGACION">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.TIPO_INVESTIGACION">
+              <MappingFragment StoreEntitySet="TIPO_INVESTIGACION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE_TIPO_INVESTIGACION" ColumnName="NOMBRE_TIPO_INVESTIGACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="ENCUESTASUSAMModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="ESTADO_PERMISO" ColumnName="ESTADO_PERMISO" />
+                <ScalarProperty Name="ID_TIPO_USUARIO" ColumnName="ID_TIPO_USUARIO" />
+                <ScalarProperty Name="ID_PERSONA_USUARIO" ColumnName="ID_PERSONA_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
