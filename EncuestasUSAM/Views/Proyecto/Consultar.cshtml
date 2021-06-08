@@ -1,0 +1,52 @@
+﻿@model List<EncuestasUSAM.Models.PROYECTOvista>
+@{
+    ViewBag.Title = "Consultar";
+}
+
+<h2>Consultar</h2>
+
+<h2>Consultar</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <input type="button" class="btn btn-primary" onclick="document.location.href='@Url.Content("~/Proyecto/Agregar")'" value="Nuevo" />
+    </div>
+</div><br />
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Nombre Proyecto</th>
+                <th>Tipo Investigación</th>
+                <th>Materia</th>
+                <th>Diseño</th>
+                <th>Fecha Asignación</th>
+                <th>Grupo</th>
+                <th>Accion</th>
+            </tr>
+
+            @foreach (var oProyecto in Model)
+            {
+                <tr>
+                    <td>@oProyecto.ID</td>
+                    <td>@oProyecto.NOMBRE_PROYECTO</td>
+                    <td>@oProyecto.DESCRIPCION</td>
+                    <td>@oProyecto.NOMBRE_TIPO_INVESTIGACION</td>
+                    <td>@oProyecto.NOMBRE_MATERIA</td>
+                    <td>@oProyecto.NOMBRE_DISENIO</td>
+                    <td>@oProyecto.FECHA_ASIGNACION</td>
+                    <td>@oProyecto.ID_ALUMNO</td>
+                    <td>
+                        <input type="button" onclick="document.location.href='@Url.Content("~/Poyecto/Borrar/" + oProyecto.ID)'" value="Eliminar" class="btn btn-danger" />
+                        <input type="button" onclick="document.location.href='@Url.Content("~/Poyecto/Actualizar/" + oProyecto.ID)'" value="Editar" class="btn btn-default" />
+                    </td>
+                </tr>
+
+            }
+
+
+        </table>
+    </div>
+
+</div>

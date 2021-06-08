@@ -148,6 +148,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\gsdk-bootstrap-wizard.css" />
     <Content Include="Content\img\business_logo.png" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Models\Encuestas.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -164,16 +166,20 @@
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\gsdk-bootstrap-wizard.js" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\jquery-2.2.4.min.js" />
     <Content Include="scripts\jquery.bootstrap.wizard.js" />
     <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -237,6 +243,8 @@
     <Compile Include="Models\PROYECTO.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PROYECTOcrud.cs" />
+    <Compile Include="Models\PROYECTOvista.cs" />
     <Compile Include="Models\ROL_USUARIO.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
@@ -266,6 +274,15 @@
     </Content>
     <Content Include="Views\Shared\_Principal.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Proyecto\Agregar.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Proyecto\Actualizar.cshtml" />
+    <Content Include="Views\Proyecto\Consultar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
