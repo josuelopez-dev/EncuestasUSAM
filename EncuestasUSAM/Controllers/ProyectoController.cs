@@ -9,6 +9,7 @@ namespace EncuestasUSAM.Controllers
 {
     public class ProyectoController : Controller
     {
+       
         // GET: Proyecto
         public ActionResult Index()
         {
@@ -17,10 +18,10 @@ namespace EncuestasUSAM.Controllers
         //llenar Tipo Investigación
         public void TIPO_INVESTIGACION()
         {
+        
             ENCUESTASUSAMEntities Datos = new ENCUESTASUSAMEntities();
-            var obtTipoInvestigacion = Datos.TIPO_INVESTIGACION.ToList();
-            SelectList lista = new SelectList(obtTipoInvestigacion, "ID", "NOMBRE_TIPO_INVESTIGACION");
-            ViewBag.TipoInvestigacion = lista;
+            var tipoInvestigacion = Datos.TIPO_INVESTIGACION.ToList();
+            ViewBag.ID_TIPO_INVESTIGACION = new SelectList(tipoInvestigacion, dataValueField: "ID", dataTextField: "NOMBRE_TIPO_INVESTIGACION");
         }
 
         //llenar Materias
@@ -28,8 +29,8 @@ namespace EncuestasUSAM.Controllers
         {
             ENCUESTASUSAMEntities Datos = new ENCUESTASUSAMEntities();
             var obtMaterias = Datos.MATERIAS.ToList();
-            SelectList lista = new SelectList(obtMaterias, "ID_MATERIA", "NOMBRE_MATERIA");
-            ViewBag.Materia = lista;
+            ViewBag.Materia = new SelectList(obtMaterias, dataValueField: "ID_MATERIA", dataTextField: "NOMBRE_MATERIA");
+
         }
 
         //llenar Diseño de Investigación
@@ -37,8 +38,8 @@ namespace EncuestasUSAM.Controllers
         {
             ENCUESTASUSAMEntities Datos = new ENCUESTASUSAMEntities();
             var obtDisenioInvestigacion = Datos.DISENIO_INVESTIGACION.ToList();
-            SelectList lista = new SelectList(obtDisenioInvestigacion, "ID_DISENIO", "NOMBRE_DISENIO");
-            ViewBag.DisenioInvestigacion = lista;
+            ViewBag.DisenioInvestigacion = new SelectList(obtDisenioInvestigacion, dataValueField: "ID_DISENIO", dataTextField: "NOMBRE_DISENIO");
+
         }
 
         //llenar Grupo Alumno
@@ -46,13 +47,14 @@ namespace EncuestasUSAM.Controllers
         {
             ENCUESTASUSAMEntities Datos = new ENCUESTASUSAMEntities();
             var obtGrupoAlumno = Datos.GRUPO_ALUMNO.ToList();
-            SelectList lista = new SelectList(obtGrupoAlumno, "ID_GRUPO_ALUMNO", "ID_ALUMNO");
-            ViewBag.GrupoAlumno = lista;
+            ViewBag.GrupoAlumno = new SelectList(obtGrupoAlumno, dataValueField: "ID_GRUPO_ALUMNO", dataTextField: "ID_ALUMNO");
+           
         }
 
         [HttpGet]
         public ActionResult Agregar()
         {
+            
             TIPO_INVESTIGACION();
             MATERIAS();
             DISENIO_INVESTIGACION();
@@ -66,6 +68,10 @@ namespace EncuestasUSAM.Controllers
             DateTime ahora = DateTime.Today;
             if (!ModelState.IsValid)
             {
+                TIPO_INVESTIGACION();
+                MATERIAS();
+                DISENIO_INVESTIGACION();
+                GRUPO_ALUMNO();
                 return View(modelo);
             }
 

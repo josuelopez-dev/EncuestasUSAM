@@ -3,59 +3,60 @@
     ViewBag.Title = "Actualizar";
 }
 
-<h2>Actualizar</h2>
+<br />
+<div class="container">
+    <h2>Actualizar Proyecto</h2>
 
-<h2>Actualizar Proyecto</h2>
-
-<div class="row">
-    <div class="col-md-12">
-        @using (Html.BeginForm("Actualizar", "Proyecto", FormMethod.Post, new { role = "form", @class = "" }))
-        {
-            @Html.AntiForgeryToken()
-
-            @Html.ValidationMessage("error", new { @class = "tex-danger" })
-            <div class="form-group">
-                @Html.HiddenFor(d => d.ID)
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("Actualizar", "Proyecto", FormMethod.Post, new { role = "form", @class = "" }))
+            {
                 @Html.AntiForgeryToken()
-                @Html.ValidationMessage("error", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(d => d.NOMBRE_PROYECTO)
-                @Html.TextBoxFor(d => d.NOMBRE_PROYECTO, new { @class = "form-control" })
-                @Html.ValidationMessage("NOMBRE_PROYECTO", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(d => d.DESCRIPCION)
-                @Html.TextBoxFor(d => d.DESCRIPCION, new { @class = "form-control" })
-                @Html.ValidationMessage("DESCRIPCION", new { @class = "text-danger" })
-            </div>
+                @Html.ValidationMessage("error", new { @class = "tex-danger" })
 
-            <div class="form-group">
-                @Html.LabelFor(d => d.ID_TIPO_INVESTIGACION)
-                @Html.DropDownList("ID_TIPO_INVESTIGACION", ViewBag.TipoInvestigacion as SelectList, "selecciona Tipo de Investigación", new { @class = "form-control" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(d => d.ID_MATERIA)
-                @Html.DropDownList("ID_MATERIA", ViewBag.Materia as SelectList, "selecciona una Materia", new { @class = "form-control" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(d => d.ID_DISENIO_INVESTIGACION)
-                @Html.DropDownList("ID_DISENIO_INVESTIGACION", ViewBag.DisenioInvestigacion as SelectList, "selecciona un Diseño de investigación", new { @class = "form-control" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(d => d.FECHA_ASIGNACION)
-                @Html.TextBoxFor(d => d.FECHA_ASIGNACION, new { @type = "date", @class = "form-control" })
-                @Html.ValidationMessage("FECHA_ASIGNACION", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(d => d.ID_GRUPO_ALUMNO)
-                @Html.DropDownList("ID_GRUPO_ALUMNO", ViewBag.GrupoAlumno as SelectList, "selecciona un Grupo", new { @class = "form-control" })
-            </div>
-            <div style="text-align:left">
-                <input type="submit" class="btn btn-success" value="Guardar" />
+                <div class="form-group">
+                    @Html.HiddenFor(d => d.ID)
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationMessage("error", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(d => d.NOMBRE_PROYECTO)
+                    @Html.TextBoxFor(d => d.NOMBRE_PROYECTO, new { @class = "form-control" })
+                    @Html.ValidationMessage("NOMBRE_PROYECTO", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(d => d.DESCRIPCION)
+                    @Html.TextBoxFor(d => d.DESCRIPCION, new { @class = "form-control" })
+                    @Html.ValidationMessage("DESCRIPCION", new { @class = "text-danger" })
+                </div>
 
-            </div>
+                <div class="form-group">
+                    @Html.LabelFor(d => d.ID_TIPO_INVESTIGACION)
+                    @Html.DropDownList("ID_TIPO_INVESTIGACION", ViewBag.TipoInvestigacion as SelectList, "selecciona Tipo de Investigación", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(d => d.ID_MATERIA)
+                    @Html.DropDownList("ID_MATERIA", ViewBag.Materia as SelectList, "selecciona una Materia", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(d => d.ID_DISENIO_INVESTIGACION)
+                    @Html.DropDownList("ID_DISENIO_INVESTIGACION", ViewBag.DisenioInvestigacion as SelectList, "selecciona un Diseño de investigación", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(d => d.FECHA_ASIGNACION)
+                    @Html.TextBoxFor(d => d.FECHA_ASIGNACION, new { @type = "date", @class = "form-control" })
+                    @Html.ValidationMessage("FECHA_ASIGNACION", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(d => d.ID_GRUPO_ALUMNO)
+                    @Html.DropDownList("ID_GRUPO_ALUMNO", ViewBag.GrupoAlumno as SelectList, "selecciona un Grupo", new { @class = "form-control" })
+                </div>
+                <div style="text-align:left">
+                    <input type="submit" class="btn btn-success" value="Guardar" />
 
-        }
+                </div>
+
+            }
+        </div>
     </div>
 </div>
