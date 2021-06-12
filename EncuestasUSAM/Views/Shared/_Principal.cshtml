@@ -4,15 +4,20 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - Encuestas USAM</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/CssBootstrap")
+    @Styles.Render("~/Content/CssWizardBootstrap")
 </head>
 <body>
+
     <div>
         @RenderBody()
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
+@Scripts.Render("~/Scripts/JQuery3.4.0")
+@Scripts.Render("~/Scripts/JsBootstrap")
+@Scripts.Render("~/Scripts/JsWizardBootstrap")
+@Scripts.Render("~/Scripts/JQueryVal")
+@Scripts.Render("~/Scripts/JQueryMaskedinput")
+@RenderSection("scripts", required: false)
 </html>

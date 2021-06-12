@@ -1,0 +1,264 @@
+﻿@model EncuestasUSAM.Models.DOCENTECrud
+@{
+    ViewBag.Title = "Nuevo Docente";
+    Layout = "~/Views/Shared/_Principal.cshtml";
+}
+
+<!-- CONTENEDOR PRINCIPAL -->
+<div class="container">
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+
+
+            <!-- CONTENEDOR WIZARD -->
+            <div class="wizard-container">
+
+                <div class="card wizard-card" data-color="blue" id="wizardProfile">
+                    <div class="wizard-header">
+                        <h3>
+                            <b>CREAR</b> NUEVO PERFIL DOCENTE <br>
+                            <small>Ingrese la información que se solicita del docente.</small>
+                        </h3>
+                    </div>
+
+                    @*NAVEGACION WIZARD*@
+                    <div class="wizard-navigation">
+                        <ul>
+                            <li><a href="#datosPersonales" data-toggle="tab">Personal</a></li>
+                            <li><a href="#contacto" data-toggle="tab">Contacto</a></li>
+                            <li><a href="#direccion" data-toggle="tab">Residencia</a></li>
+                            <li><a href="#laboral" data-toggle="tab">Laboral</a></li>
+                            <li><a href="#cuenta" data-toggle="tab">Cuenta</a></li>
+                        </ul>
+                    </div>
+
+                    @using (Html.BeginForm("Insertar", "Docente", FormMethod.Post, new { role = "form", @class = "" }))
+                    {
+
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationMessage("error", new { @class = "text-danger" })
+
+                        <div class="tab-content">
+
+                            @*DATOS PERSONALES*@
+                            <div class="tab-pane" id="datosPersonales">
+                                <div class="row">
+                                    <h4 class="info-text"> Datos Personales (Información básica)</h4>
+                                    <div class="col-sm-4 col-sm-offset-1">
+                                        <div class="picture-container">
+                                            <img src="~/Content/img/logo_USAM.png" class="picture-src" id="wizardPicturePreview" title="" />
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <br>
+
+                                    <div class="col-sm-6">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                @ViewBag.Persona
+                                                <label>Primer Nombre</label>
+                                                @Html.TextBoxFor(d => d.PRIMER_NOMBRE, new { @class = "form-control", @placeholder = "1er Nombre" })
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Segundo Nombre</label>
+                                                @Html.TextBoxFor(d => d.SEGUNDO_NOMBRE, new { @class = "form-control", @placeholder = "2do Nombre" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Primer Apellido</label>
+                                                @Html.TextBoxFor(d => d.PRIMER_APELLIDO, new { @class = "form-control", @placeholder = "1er Apellido" })
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Segundo Apellido</label>
+                                                @Html.TextBoxFor(d => d.SEGUNDO_APELLIDO, new { @class = "form-control", @placeholder = "2do Apellido" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Sexo</label>
+                                                @Html.DropDownListFor(d => d.SEXO, ViewBag.Sexo as SelectList, "Seleccione...", new { @class = "form-control" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Número de DUI</label>
+                                                @Html.TextBoxFor(d => d.DUI, new { @class = "form-control", @placeholder = "00000000-0" })
+                                                @Html.ValidationMessage("DUI", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*DATOS DE CONTACTO*@
+                            <div class="tab-pane" id="contacto">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4 class="info-text"> Información de Contacto </h4>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="col-sm-7 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Correo Personal</label>
+                                            @Html.TextBoxFor(d => d.CORREO_PERSONAL, new { @class = "form-control", @placeholder = "personal@mail.com" })
+                                            @Html.ValidationMessage("CORREO_PERSONAL", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Número de Telefono Fijo</label>
+                                            @Html.TextBoxFor(d => d.TELEFONO_FIJO, new { @class = "form-control", @placeholder = "0000-0000" })
+                                            @Html.ValidationMessage("TELEFONO_FIJO", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>Número de Telefono Movil</label>
+                                            @Html.TextBoxFor(d => d.TELEFONO_MOVIL, new { @class = "form-control", @placeholder = "0000-0000" })
+                                            @Html.ValidationMessage("TELEFONO_MOVIL", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*DATOS DE DIRECCION*@
+                            <div class="tab-pane" id="direccion">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4 class="info-text"> Información de la dirección </h4>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="col-sm-7 col-sm-offset-2">
+                                        <div class="form-group">
+                                            <label>Departamento</label>
+                                            @Html.DropDownListFor(d => d.DEPARTAMENTO, ViewBag.Departamento as SelectList, "Seleccione...", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-sm-offset-2">
+                                        <div class="form-group">
+                                            <label>Dirección</label>
+                                            @Html.TextAreaFor(d => d.DIRECCION, new { @class = "form-control", @placeholder = "Escriba su direccion", @rows = "5" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*DATOS LABORALES*@
+                            <div class="tab-pane" id="laboral">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4 class="info-text"> Información laboral </h4>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="col-sm-6 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Correo Institucional</label>
+                                            @Html.TextBoxFor(d => d.CORREO_INSTITUCIONAL, new { @class = "form-control", @placeholder = "docente@liveusam.edu.sv" })
+                                            @Html.ValidationMessage("CORREO_INSTITUCIONAL", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Fecha de ingreso</label>
+                                            @Html.TextBoxFor(d => d.FECHA_INGRESO, new { @class = "form-control", @type = "date" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Profesión</label>
+                                            @Html.DropDownListFor(d => d.PROFESION, ViewBag.Profesion as SelectList, "Seleccione...", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>Facultades</label><br>
+                                            @Html.DropDownListFor(d => d.FACULTAD, ViewBag.Facultad as SelectList, "Seleccione...", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*DATOS DE CUENTA*@
+                            <div class="tab-pane" id="cuenta">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4 class="info-text"> Información de la cuenta </h4>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="col-sm-6 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Nombre Usuario</label>
+                                            @Html.TextBoxFor(d => d.NOMBRE_USUARIO, new { @class = "form-control", @placeholder = "Usuario" })
+                                            @Html.ValidationMessage("NOMBRE_USUARIO", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Contraseña</label>
+                                            @Html.TextBoxFor(d => d.PASSWORD, new { @class = "form-control", @placeholder = "••••••••••••••••", @type = "password" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>Repetir Contraseña</label><br>
+                                            @Html.TextBoxFor(d => d.RePASSWORD, new { @class = "form-control", @placeholder = "••••••••••••••••", @type = "password" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-footer height-wizard">
+                            <div class="pull-right">
+                                <input type="button" class="btn btn-next btn-fill btn-form btn-wd btn-sm" name="next" value="Siguiente" />
+                                <input type="submit" class="btn btn-finish btn-fill btn-form btn-wd btn-sm" name="finish" value="Guardar" disabled />
+                            </div>
+
+                            <div class="pull-left">
+                                <input type="button" class="btn btn-previous btn-fill btn-default btn-wd btn-sm" name="previous" value="Regresar" />
+                            </div>
+
+                        </div>
+                        <div style="display: block; text-align: center">
+                            <p><h4 class="text-danger">@ViewBag.Error</h4></p>
+                        </div>
+                    }
+                </div>
+
+            </div>
+            <!-- FIN CONTENEDOR WIZARD -->
+
+        </div>
+    </div>
+    <!-- FIN FILA -->
+
+</div>
+<!--  FIN CONTENEDOR -->
+
+@section Scripts{
+
+    <script type="text/javascript">
+        $("#TELEFONO_FIJO").mask("9999-9999");
+        $("#TELEFONO_MOVIL").mask("9999-9999");
+        $("#DUI").mask("99999999-9");
+    </script>
+}
