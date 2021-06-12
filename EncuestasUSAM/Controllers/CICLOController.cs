@@ -27,9 +27,6 @@ namespace EncuestasUSAM.Controllers
         public void DOCENTE()
         {
             ENCUESTASUSAMEntities Datos = new ENCUESTASUSAMEntities();
-            //var obtPersona = Datos.DOCENTE.ToList();
-            //ViewBag.Docente = new SelectList(obtPersona, dataValueField: "ID_DOCENTE", dataTextField: "PERSONA");
-
             List<DOCENTECrud> lista = null;
             using (Datos)
             {
