@@ -24,11 +24,13 @@ namespace EncuestasUSAM.App_Start
                       "~/Scripts/bootstrap.min.js",
                       "~/Scripts/jquery.bootstrap.wizard.js",
                       "~/Scripts/gsdk-bootstrap-wizard.js",
-                      "~/Scripts/jquery.validate.min.js"));
+                      "~/Scripts/jquery.validate.min.js", 
+                      "~/Scripts/sweetalert2.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/gsdk-bootstrap-wizard.css"));
+                      "~/Content/gsdk-bootstrap-wizard.css",
+                      "~/Content/sweetalert2.css"));
         }
     }
 }
