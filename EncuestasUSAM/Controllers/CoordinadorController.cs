@@ -139,9 +139,31 @@ namespace EncuestasUSAM.Controllers
                 bdDatos.SaveChanges();
             }
 
-            return Redirect(Url.Content("~/Home/Index"));
+            return Redirect(Url.Content("~/Coordinador/Consultar"));
         }
 
-
+        public ActionResult Consultar()
+        {
+            List<COORDINADORCrud> lista = null;
+            using (bdDatos)
+            {
+                lista = (from c in bdDatos.COORDINADOR
+                         join pe in bdDatos.PERSONA on c.PERSONA equals pe.ID_PERSONA
+                         join f in bdDatos.FACULTAD on c.FACULTAD equals f.ID_FACULTAD
+                         join p in bdDatos.PROFESION on c.PROFESION equals p.ID_PROFESION
+                         join u in bdDatos.USUARIO on c.PERSONA equals u.ID_PERSONA_USUARIO
+                         select new COORDINADORCrud
+                         {
+                             COORDINADOR = pe.PRIMER_NOMBRE_PERSONA + " " + pe.PRIMER_APELLIDO_PERSONA,
+                             CORREO_INSTITUCIONAL = pe.CORREO_INSTITUCIONAL,
+                             CORREO_PERSONAL = pe.CORREO_PERSONAL,
+                             NOMBRE_FACULTAD = f.NOMBRE_FACULTAD,
+                             NOMBRE_PROFESION = p.NOMBRE_PROFESION,
+                             ESTADO_PERMISO = (bool)u.ESTADO_PERMISO,
+                             ID_PERSONA = c.PERSONA
+                         }).ToList();
+            }
+            return View(lista);
+        }
     }
 }

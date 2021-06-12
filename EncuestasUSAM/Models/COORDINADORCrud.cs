@@ -10,6 +10,13 @@ namespace EncuestasUSAM.Models
 {
     public class COORDINADORCrud
     {
+        // VARIABLES PARA JOIN
+        public string COORDINADOR { get; set; }
+
+        public string NOMBRE_FACULTAD { get; set; }
+
+        public string NOMBRE_PROFESION { get; set; }
+
         // TABLA PERSONA
         public int ID_PERSONA { get; set; }
 

@@ -139,7 +139,7 @@ namespace EncuestasUSAM.Controllers
                 bdDatos.SaveChanges();
             }
 
-            return Redirect(Url.Content("~/Home/Index"));
+            return Redirect(Url.Content("~/Docente/Consultar"));
         }
 
         public ActionResult Consultar()

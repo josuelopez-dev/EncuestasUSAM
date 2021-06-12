@@ -1,18 +1,18 @@
-﻿@model List<EncuestasUSAM.Models.DOCENTECrud>
+﻿@model List<EncuestasUSAM.Models.COORDINADORCrud>
 
 @{
-    ViewBag.Title = "Docentes";
+    ViewBag.Title = "Coordinadores";
     Layout = "~/Views/Shared/_Principal.cshtml";
 }
 
 <div class="container">
-    <h2>Docentes</h2>
+    <h2>Coordinadores</h2>
     <div class="row">
         <div class="col-md-10">
             <table class="table table-hover table-striped">
                 <thead style="background-color: #094f8b; color: #fff; font-size: 15px;">
                     <tr>
-                        <th rowspan="2">Docente</th>
+                        <th rowspan="2">Coordinaor</th>
                         <th colspan="2">Correos</th>
                         <th rowspan="2">Facultad</th>
                         <th rowspan="2">Profesion</th>
@@ -24,18 +24,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var docente in Model)
+                    @foreach (var coordinador in Model)
                     {
                         <tr align="center">
-                            <td>@docente.DOCENTE</td>
-                            <td>@docente.CORREO_INSTITUCIONAL</td>
-                            <td>@docente.CORREO_PERSONAL</td>
-                            <td>@docente.NOMBRE_FACULTAD</td>
-                            <td>@docente.NOMBRE_PROFESION</td>
-                            <td>@docente.ESTADO_PERMISO</td>
+                            <td>@coordinador.COORDINADOR</td>
+                            <td>@coordinador.CORREO_INSTITUCIONAL</td>
+                            <td>@coordinador.CORREO_PERSONAL</td>
+                            <td>@coordinador.NOMBRE_FACULTAD</td>
+                            <td>@coordinador.NOMBRE_PROFESION</td>
+                            <td>@coordinador.ESTADO_PERMISO</td>
                             <td>
                                 <label class="switch">
-                                    <input type="checkbox" value="@docente.ESTADO_PERMISO">
+                                    <input type="checkbox" value="@coordinador.ESTADO_PERMISO">
                                     <span class="slider round"></span>
                                 </label>
                             </td>

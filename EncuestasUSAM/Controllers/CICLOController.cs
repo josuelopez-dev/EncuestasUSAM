@@ -27,8 +27,29 @@ namespace EncuestasUSAM.Controllers
         public void DOCENTE()
         {
             ENCUESTASUSAMEntities Datos = new ENCUESTASUSAMEntities();
-            var obtPersona = Datos.DOCENTE.ToList();
-            ViewBag.Docente = new SelectList(obtPersona, dataValueField: "ID_DOCENTE", dataTextField: "PERSONA");
+            List<DOCENTECrud> lista = null;
+            using (Datos)
+            {
+                lista = (from d in Datos.DOCENTE
+                         join p in Datos.PERSONA on d.PERSONA equals p.ID_PERSONA
+                         select new DOCENTECrud
+                         {
+                             ID_DOCENTE = d.ID_DOCENTE,
+                             DOCENTE = p.PRIMER_NOMBRE_PERSONA + " " + p.PRIMER_APELLIDO_PERSONA
+                         }).ToList();
+            }
+
+            List<SelectListItem> items = lista.ConvertAll(d =>
+            {
+                return new SelectListItem()
+                {
+                    Text = d.DOCENTE.ToString(),
+                    Value = d.ID_DOCENTE.ToString(),
+                    Selected = false
+                };
+            }).ToList();
+
+            ViewBag.Docente = items;
         }
 
         [HttpGet]

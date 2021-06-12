@@ -310,6 +310,7 @@
     <Content Include="Views\Docente\Insertar.cshtml" />
     <Content Include="Views\Coordinador\Insertar.cshtml" />
     <Content Include="Views\Docente\Consultar.cshtml" />
+    <Content Include="Views\Coordinador\Consultar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

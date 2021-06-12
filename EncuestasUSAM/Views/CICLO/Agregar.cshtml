@@ -1,6 +1,7 @@
 ﻿@model EncuestasUSAM.Models.CICLOcrudInsert
 @{
     ViewBag.Title = "Agregar";
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.Docente;
 }
 <br />
 <h2>Agregar Ciclo</h2>
@@ -21,7 +22,7 @@
 
             <div class="col-xs-6">
                 @Html.LabelFor(d => d.DOCENTE)
-                @Html.DropDownListFor(d => d.DOCENTE, ViewBag.Docente as SelectList, "Selecciona Docente", new { @class = "form-control" })
+                @Html.DropDownListFor(d => d.DOCENTE, items, "Selecciona Docente", new { @class = "form-control" })
                 @Html.ValidationMessage("DOCENTE", new { @class = "text-danger" })
                 <br />
             </div>
