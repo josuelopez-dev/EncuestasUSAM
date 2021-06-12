@@ -147,8 +147,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\gsdk-bootstrap-wizard.css" />
-    <Content Include="Content\img\logo_USAM.png" />
+    <Content Include="Content\img\business_logo.png" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\sweetalert2.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Models\Encuestas.Context.tt">
@@ -170,21 +171,18 @@
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\jquery-2.2.4.min.js" />
-    <Content Include="scripts\jquery-3.4.0.min.js" />
     <Content Include="scripts\jquery.bootstrap.wizard.js" />
-    <Content Include="scripts\jquery.maskedinput.js" />
     <Content Include="scripts\jquery.validate.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="scripts\sweetalert2.js" />
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CoordinadorController.cs" />
-    <Compile Include="Controllers\DocenteController.cs" />
+    <Compile Include="Controllers\CICLOController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MateriasController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -198,13 +196,14 @@
     <Compile Include="Models\CICLO.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CICLOcrud.cs" />
+    <Compile Include="Models\CICLOvista.cs" />
     <Compile Include="Models\CICLO_CARRERA.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\COORDINADOR.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\COORDINADORCrud.cs" />
     <Compile Include="Models\DEPARTAMENTO.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
@@ -214,7 +213,6 @@
     <Compile Include="Models\DOCENTE.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DOCENTECrud.cs" />
     <Compile Include="Models\Encuestas.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -239,6 +237,8 @@
     <Compile Include="Models\MATERIAS.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MATERIAScrud.cs" />
+    <Compile Include="Models\MATERIASvista.cs" />
     <Compile Include="Models\MATERIA_ALUMNO.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
@@ -265,8 +265,6 @@
     <Compile Include="Models\USUARIO.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Utilerias\Encriptar.cs" />
-    <Compile Include="Models\Utilerias\ValidaCampos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -293,9 +291,12 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Proyecto\Actualizar.cshtml" />
     <Content Include="Views\Proyecto\Consultar.cshtml" />
-    <Content Include="Views\Docente\Insertar.cshtml" />
-    <Content Include="Views\Coordinador\Insertar.cshtml" />
-    <Content Include="Views\Docente\Consultar.cshtml" />
+    <Content Include="Views\Materias\Agregar.cshtml" />
+    <Content Include="Views\Materias\Actualizar.cshtml" />
+    <Content Include="Views\Materias\Consultar.cshtml" />
+    <Content Include="Views\CICLO\Agregar.cshtml" />
+    <Content Include="Views\CICLO\Actualizar.cshtml" />
+    <Content Include="Views\CICLO\Consultar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

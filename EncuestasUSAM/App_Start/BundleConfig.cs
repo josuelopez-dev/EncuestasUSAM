@@ -10,40 +10,27 @@ namespace EncuestasUSAM.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            // bootstrap.css y bootstrap.min.css
-            bundles.Add(new StyleBundle("~/Content/CssBootstrap").Include(
-                      "~/Content/bootstrap.*"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        "~/Scripts/jquery-{version}.js"));
 
-            // css para estilo del wizard
-            bundles.Add(new StyleBundle("~/Content/CssWizardBootstrap").Include(
-                      "~/Content/gsdk-bootstrap-wizard.css"));
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            //            "~/Scripts/jquery.validate*"));
 
-            // jquery-3.4.0.min.js
-            bundles.Add(new ScriptBundle("~/Scripts/JQuery3.4.0").Include(
-                      "~/Scripts/jquery-3.4.0.min.js"));
-
-            // bootstrap.js y bootstrap.min.js
-            bundles.Add(new ScriptBundle("~/Scripts/JsBootstrap").Include(
-                      "~/Scripts/bootstrap.*"));
-
-            // archivos js para el wizard
-            bundles.Add(new ScriptBundle("~/Scripts/JsWizardBootstrap").Include(
-                      "~/Scripts/jquery.bootstrap.wizard.js",
-                      "~/Scripts/gsdk-bootstrap-wizard.js"));
-
-            // jQuery validate
-            bundles.Add(new ScriptBundle("~/Scripts/JQueryVal").Include(
-                        "~/Scripts/jquery.validate.min.js"));
-
-            // mascara jQuery
-            bundles.Add(new ScriptBundle("~/Scripts/JQueryMaskedinput").Include(
-                        "~/Scripts/jquery.maskedinput.js"));
-
-            //bundles.Add(new ScriptBundle("~/Scripts/jquery").Include(
-            //            "~/Scripts/jquery-{version}.js"));
-
-            //bundles.Add(new ScriptBundle("~/Scripts/modernizr").Include(
+            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
             //            "~/Scripts/modernizr-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/jquery-2.2.4.min.js",
+                      "~/Scripts/bootstrap.min.js",
+                      "~/Scripts/jquery.bootstrap.wizard.js",
+                      "~/Scripts/gsdk-bootstrap-wizard.js",
+                      "~/Scripts/jquery.validate.min.js", 
+                      "~/Scripts/sweetalert2.js"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/bootstrap.css",
+                      "~/Content/gsdk-bootstrap-wizard.css",
+                      "~/Content/sweetalert2.css"));
         }
     }
 }

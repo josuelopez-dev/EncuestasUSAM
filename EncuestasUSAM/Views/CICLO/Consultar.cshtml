@@ -1,0 +1,50 @@
+﻿@model List<EncuestasUSAM.Models.CICLOvista>
+@{
+    ViewBag.Title = "Consultar";
+}
+<br />
+
+<div class="container">
+    <h2>Registro de Ciclo</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            <input type="button" class="btn btn-success" onclick="document.location.href='@Url.Content("~/CICLO/Agregar")'" value="Nuevo" />
+        </div>
+    </div><br />
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID Ciclo</th>
+                        <th>Cod Ciclo</th>
+                        <th>Docente</th>
+                        <th>Carrera</th>
+                        <th>Fecha inicio</th>
+                        <th>Fecha Fin</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                @foreach (var oCiclo in Model)
+            {
+                    <tr>
+                        <td>@oCiclo.ID_CICLO</td>
+                        <td>@oCiclo.COD_CICLO</td>
+                        <td>@oCiclo.PRIMER_NOMBRE </td>
+                        <td>@oCiclo.NOMBRE_MATERIA</td>
+                        <td>@oCiclo.FECHA_INICIO.ToShortDateString()</td>
+                        <td>@oCiclo.FECHA_FIN.ToShortDateString()</td>
+                        <td style="margin-left: 10px;padding-left: 150px;">
+                            <input id="delete" type="button" onclick="document.location.href='@Url.Content("~/CICLO/Borrar/" + oCiclo.ID_CICLO)'" value="Eliminar" class="btn btn-danger" style="margin-left: -145px;" /><p>  </p>
+                            <input type="button" onclick="document.location.href='@Url.Content("~/CICLO/Actualizar/" + oCiclo.ID_CICLO)'" value="Editar" class="btn btn-default" style="margin-top: -84px;margin-left: -45px;" />
+                        </td>
+                    </tr>
+
+                }
+
+            </table>
+        </div>
+    </div>
+
+</div>

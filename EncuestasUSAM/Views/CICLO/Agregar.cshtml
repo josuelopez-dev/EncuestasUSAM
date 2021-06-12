@@ -1,0 +1,54 @@
+﻿@model EncuestasUSAM.Models.CICLOcrudInsert
+@{
+    ViewBag.Title = "Agregar";
+}
+<br />
+<h2>Agregar Ciclo</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Agregar", "CICLO", FormMethod.Post, new { role = "form", @class = "" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationMessage("error", new { @class = "tex-danger" })
+            <div class="col-xs-6">
+                @Html.LabelFor(d => d.COD_CICLO)
+                @Html.TextBoxFor(d => d.COD_CICLO, new { @class = "form-control", @placeholder = "Igrese Ciclo" })
+                @Html.ValidationMessage("COD_CICLO", new { @class = "text-danger" })
+                <br />
+            </div>
+
+            <div class="col-xs-6">
+                @Html.LabelFor(d => d.DOCENTE)
+                @Html.DropDownListFor(d => d.DOCENTE, ViewBag.Docente as SelectList, "Selecciona Docente", new { @class = "form-control" })
+                @Html.ValidationMessage("DOCENTE", new { @class = "text-danger" })
+                <br />
+            </div>
+            <div class="col-xs-6">
+                @Html.LabelFor(d => d.MATERIA)
+                @Html.DropDownListFor(d => d.MATERIA, ViewBag.Materia as SelectList, "Selecciona Materia", new { @class = "form-control" })
+                @Html.ValidationMessage("MATERIA", new { @class = "text-danger" })
+                <br />
+            </div>
+            <div class="col-xs-6">
+                @Html.LabelFor(d => d.FECHA_INICIO)
+                @Html.TextBoxFor(d => d.FECHA_INICIO, new { @type = "date", @class = "form-control" })
+                @Html.ValidationMessage("FECHA_INICIO", new { @class = "text-danger" })
+                <br />
+            </div>
+            <div class="col-xs-6">
+                @Html.LabelFor(d => d.FECHA_FIN)
+                @Html.TextBoxFor(d => d.FECHA_FIN, new { @type = "date", @class = "form-control" })
+                @Html.ValidationMessage("FECHA_FIN", new { @class = "text-danger" })
+                <br />
+            </div>
+            <div style="text-align:center" class="col-xs-10">
+                <input type="submit" class="btn btn-success" value="Guardar" id="link1" />
+
+            </div>
+
+        }
+    </div>
+
+</div>

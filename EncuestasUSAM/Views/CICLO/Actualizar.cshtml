@@ -1,0 +1,62 @@
+﻿@model EncuestasUSAM.Models.CICLOcrudUpdate
+@{
+    ViewBag.Title = "Actualizar";
+}
+
+<br />
+<div class="container">
+    <h2>Actualizar Ciclo</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("Actualizar", "CICLO", FormMethod.Post, new { role = "form", @class = "" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationMessage("error", new { @class = "tex-danger" })
+
+                <div class="form-group">
+                    @Html.HiddenFor(d => d.ID_CICLO)
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationMessage("error", new { @class = "text-danger" })
+                </div>
+                <div class="col-xs-6">
+                    @Html.LabelFor(d => d.COD_CICLO)
+                    @Html.TextBoxFor(d => d.COD_CICLO, new { @class = "form-control", @placeholder = "Igrese Materia" })
+                    @Html.ValidationMessage("COD_CICLO", new { @class = "text-danger" })
+                    <br />
+                </div>
+                <div class="col-xs-6">
+                    @Html.LabelFor(d => d.DOCENTE)
+                    @Html.DropDownListFor(d => d.DOCENTE, ViewBag.Carrera as SelectList, "Selecciona Docente", new { @class = "form-control" })
+                    @Html.ValidationMessage("DOCENTE_", new { @class = "text-danger" })
+                    <br />
+                </div>
+                <div class="col-xs-6">
+                    @Html.LabelFor(d => d.MATERIA)
+                    @Html.DropDownListFor(d => d.MATERIA, ViewBag.Carrera as SelectList, "Selecciona Materia", new { @class = "form-control" })
+                    @Html.ValidationMessage("MATERIA", new { @class = "text-danger" })
+                    <br />
+                </div>
+                <div class="col-xs-6">
+                    @Html.LabelFor(d => d.FECHA_INICIO)
+                    @Html.TextBox("FECHA_INICIO", Model.FECHA_INICIO, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control" })
+                    @Html.ValidationMessage("FECHA_ASIGNACION", new { @class = "text-danger" })
+                    <br />
+                </div>
+                <div class="col-xs-6">
+                    @Html.LabelFor(d => d.FECHA_FIN)
+                    @Html.TextBox("FECHA_FIN", Model.FECHA_INICIO, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control" })
+                    @Html.ValidationMessage("FECHA_FIN", new { @class = "text-danger" })
+                    <br />
+                </div>
+                <div style="text-align:center" class="col-xs-10">
+                    <input type="submit" class="btn btn-primary" value="Actuaizar" />
+
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+

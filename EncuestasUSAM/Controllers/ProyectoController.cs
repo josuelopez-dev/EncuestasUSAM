@@ -21,7 +21,7 @@ namespace EncuestasUSAM.Controllers
         
             ENCUESTASUSAMEntities Datos = new ENCUESTASUSAMEntities();
             var tipoInvestigacion = Datos.TIPO_INVESTIGACION.ToList();
-            ViewBag.ID_TIPO_INVESTIGACION = new SelectList(tipoInvestigacion, dataValueField: "ID", dataTextField: "NOMBRE_TIPO_INVESTIGACION");
+            ViewBag.TipoInvestiga = new SelectList(tipoInvestigacion, dataValueField: "ID", dataTextField: "NOMBRE_TIPO_INVESTIGACION");
         }
 
         //llenar Materias
@@ -62,7 +62,6 @@ namespace EncuestasUSAM.Controllers
             return View();
         }
 
-        [HttpPost]
         public ActionResult Agregar(PROYECTOcrudInsert modelo)
         {
             DateTime ahora = DateTime.Today;
@@ -123,8 +122,8 @@ namespace EncuestasUSAM.Controllers
                 modelo.ID_TIPO_INVESTIGACION = (int)objProyecto.ID_TIPO_INVESTIGACION;
                 modelo.ID_MATERIA = (int)objProyecto.ID_MATERIA;
                 modelo.ID_DISENIO_INVESTIGACION = (int)objProyecto.ID_DISENIO_INVESTIGACION;
-                modelo.FECHA_ASIGNACION = (DateTime)objProyecto.FECHA_ASIGNACION;
-                modelo.ID_GRUPO_ALUMNO = (int)objProyecto.ID_DISENIO_INVESTIGACION;
+                modelo.FECHA_ASIGNACION = (DateTime)objProyecto.FECHA_ASIGNACION.Value;
+                modelo.ID_GRUPO_ALUMNO = (int)objProyecto.ID_GRUPO_ALUMNO;
                 modelo.ID = objProyecto.ID;
             }
             return View(modelo);
@@ -134,6 +133,10 @@ namespace EncuestasUSAM.Controllers
         {
             if (!ModelState.IsValid)
             {
+                TIPO_INVESTIGACION();
+                MATERIAS();
+                DISENIO_INVESTIGACION();
+                GRUPO_ALUMNO();
                 return View(modelo);
             }
             using (var bDatos = new ENCUESTASUSAMEntities())
