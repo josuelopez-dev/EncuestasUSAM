@@ -180,6 +180,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CICLOController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MateriasController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
@@ -195,6 +196,8 @@
     <Compile Include="Models\CICLO.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CICLOcrud.cs" />
+    <Compile Include="Models\CICLOvista.cs" />
     <Compile Include="Models\CICLO_CARRERA.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
@@ -291,6 +294,9 @@
     <Content Include="Views\Materias\Agregar.cshtml" />
     <Content Include="Views\Materias\Actualizar.cshtml" />
     <Content Include="Views\Materias\Consultar.cshtml" />
+    <Content Include="Views\CICLO\Agregar.cshtml" />
+    <Content Include="Views\CICLO\Actualizar.cshtml" />
+    <Content Include="Views\CICLO\Consultar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
