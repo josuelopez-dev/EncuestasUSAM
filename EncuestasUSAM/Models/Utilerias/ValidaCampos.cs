@@ -112,4 +112,5 @@ namespace EncuestasUSAM.Models.Utilerias
             return ValidationResult.Success;
         }
     }
+
 }

@@ -9,7 +9,6 @@ namespace EncuestasUSAM.Models.Utilerias
 {
     public class Encriptar
     {
-
         public Encriptar()
         {
 

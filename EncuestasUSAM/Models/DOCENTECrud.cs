@@ -95,5 +95,6 @@ namespace EncuestasUSAM.Models
         public int? ID_TIPO_USUARIO { get; set; }
 
         public int? ID_PERSONA_USUARIO { get; set; }
+
     }
 }

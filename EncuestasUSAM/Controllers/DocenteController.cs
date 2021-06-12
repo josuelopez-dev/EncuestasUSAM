@@ -154,7 +154,7 @@ namespace EncuestasUSAM.Controllers
                          join u in bdDatos.USUARIO on d.PERSONA equals u.ID_PERSONA_USUARIO
                          select new DOCENTECrud
                          {
-                             DOCENTE = pe.PRIMER_NOMBRE_PERSONA +" "+ pe.PRIMER_APELLIDO_PERSONA,
+                             DOCENTE = pe.PRIMER_NOMBRE_PERSONA + " " + pe.PRIMER_APELLIDO_PERSONA,
                              CORREO_INSTITUCIONAL = pe.CORREO_INSTITUCIONAL,
                              CORREO_PERSONAL = pe.CORREO_PERSONAL,
                              NOMBRE_FACULTAD = f.NOMBRE_FACULTAD,
@@ -165,5 +165,6 @@ namespace EncuestasUSAM.Controllers
             }
             return View(lista);
         }
+
     }
 }
