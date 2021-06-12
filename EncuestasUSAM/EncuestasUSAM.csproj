@@ -181,6 +181,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MateriasController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -233,6 +234,8 @@
     <Compile Include="Models\MATERIAS.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MATERIAScrud.cs" />
+    <Compile Include="Models\MATERIASvista.cs" />
     <Compile Include="Models\MATERIA_ALUMNO.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
@@ -285,6 +288,9 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Proyecto\Actualizar.cshtml" />
     <Content Include="Views\Proyecto\Consultar.cshtml" />
+    <Content Include="Views\Materias\Agregar.cshtml" />
+    <Content Include="Views\Materias\Actualizar.cshtml" />
+    <Content Include="Views\Materias\Consultar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

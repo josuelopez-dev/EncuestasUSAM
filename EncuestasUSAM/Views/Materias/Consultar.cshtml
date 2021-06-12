@@ -1,0 +1,46 @@
+﻿@model List<EncuestasUSAM.Models.MATERIASvista>
+@{
+    ViewBag.Title = "Consultar";
+}
+<br />
+
+<div class="container">
+    <h2>Registro de Materias</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            <input type="button" class="btn btn-success" onclick="document.location.href='@Url.Content("~/Materias/Agregar")'" value="Nuevo" />
+        </div>
+    </div><br />
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Codigo Materia</th>
+                        <th>Nombre Materia</th>
+                        <th>Carrera</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                @foreach (var oMateria in Model)
+            {
+                    <tr>
+                        <td>@oMateria.ID_MATERIA</td>
+                        <td>@oMateria.CODIGO_MATERIA</td>
+                        <td>@oMateria.NOMBRE_MATERIA</td>
+                        <td>@oMateria.NOMBRE_CARRERA</td>
+                        <td style="margin-left: 10px;padding-left: 150px;">
+                            <input id="delete" type="button" onclick="document.location.href='@Url.Content("~/Materias/Borrar/" + oMateria.ID_MATERIA)'" value="Eliminar" class="btn btn-danger" style="margin-left: -145px;" /><p>  </p>
+                            <input type="button" onclick="document.location.href='@Url.Content("~/Materias/Actualizar/" + oMateria.ID_MATERIA)'" value="Editar" class="btn btn-default" style="margin-top: -84px;margin-left: -45px;" />
+                        </td>
+                    </tr>
+
+                }
+
+            </table>
+        </div>
+    </div>
+
+</div>

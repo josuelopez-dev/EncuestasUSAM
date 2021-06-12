@@ -1,0 +1,43 @@
+﻿@model EncuestasUSAM.Models.MATERIAScrudInsert
+@{
+    ViewBag.Title = "Agregar";
+}
+<br />
+<h2>Agregar Materias</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Agregar", "Materias", FormMethod.Post, new { role = "form", @class = "" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationMessage("error", new { @class = "tex-danger" })
+            <div class="col-xs-6">
+                @Html.LabelFor(d => d.NOMBRE_MATERIA)
+                @Html.TextBoxFor(d => d.NOMBRE_MATERIA, new { @class = "form-control", @placeholder = "Igrese Materia" })
+                @Html.ValidationMessage("NOMBRE_MATERIA", new { @class = "text-danger" })
+                <br />
+            </div>
+            <div class="col-xs-6">
+                @Html.LabelFor(d => d.CODIGO_MATERIA)
+                @Html.TextBoxFor(d => d.CODIGO_MATERIA, new { @class = "form-control", @placeholder = "Ingrese Código Materia" })
+                @Html.ValidationMessage("CODIGO_MATERIA", new { @class = "text-danger" })
+                <br />
+            </div>
+
+            <div class="col-xs-6">
+                @Html.LabelFor(d => d.CARRERA)
+                @Html.DropDownListFor(d => d.CARRERA, ViewBag.Carrera as SelectList, "Selecciona Carrera", new { @class = "form-control" })
+                @Html.ValidationMessage("CARRERA", new { @class = "text-danger" })
+                <br />
+            </div>
+
+            <div style="text-align:center" class="col-xs-10">
+                <input type="submit" class="btn btn-success" value="Guardar" id="link1" />
+
+            </div>
+
+        }
+    </div>
+
+</div>
