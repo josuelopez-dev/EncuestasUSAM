@@ -130,7 +130,7 @@ namespace EncuestasUSAM.Controllers
                 USUARIO objUser = new USUARIO();
                 objUser.ID_USUARIO = (int)IDUsuario;
                 objUser.NOMBRE_USUARIO = coordinador.NOMBRE_USUARIO;
-                objUser.PASSWORD = encoding.GetBytes(Encriptar.Encrip(coordinador.PASSWORD));
+                objUser.PASSWORD = coordinador.PASSWORD;
                 objUser.ESTADO_PERMISO = false;
                 objUser.ID_TIPO_USUARIO = 3;
                 objUser.ID_PERSONA_USUARIO = (int)IDPersona;

@@ -147,8 +147,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\gsdk-bootstrap-wizard.css" />
+    <Content Include="Content\img\img.jpg" />
     <Content Include="Content\img\logo_USAM.png" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\sweetalert2.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -167,6 +169,13 @@
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\gsdk-bootstrap-wizard.js" />
+    <EntityDeploy Include="Models\Encuestas.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Encuestas.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Encuestas.edmx.diagram">
+      <DependentUpon>Encuestas.edmx</DependentUpon>
+    </Content>
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -183,13 +192,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccesosController.cs" />
     <Compile Include="Controllers\CICLOController.cs" />
     <Compile Include="Controllers\CoordinadorController.cs" />
     <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MateriasController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
+    <Compile Include="Controllers\SalirController.cs" />
+    <Compile Include="Filters\VerificaSesion.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -267,6 +280,9 @@
     <Compile Include="Models\SEXO.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Encuestas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TIPO_INVESTIGACION.cs">
       <DependentUpon>Encuestas.tt</DependentUpon>
     </Compile>
@@ -282,13 +298,6 @@
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\Encuestas.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Encuestas.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Encuestas.edmx.diagram">
-      <DependentUpon>Encuestas.edmx</DependentUpon>
     </Content>
     <Content Include="Views\Shared\_Principal.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -311,6 +320,8 @@
     <Content Include="Views\Coordinador\Insertar.cshtml" />
     <Content Include="Views\Docente\Consultar.cshtml" />
     <Content Include="Views\Coordinador\Consultar.cshtml" />
+    <Content Include="Views\Accesos\Ingresar.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -320,6 +331,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Salir\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

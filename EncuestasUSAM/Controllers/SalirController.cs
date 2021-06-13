@@ -6,15 +6,15 @@ using System.Web.Mvc;
 
 namespace EncuestasUSAM.Controllers
 {
-    public class HomeController : Controller
+    public class SalirController : Controller
     {
-        // GET: Home
+        // GET: Salir
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Salir()
+        public ActionResult CerrarSesion()
         {
             Session["Usuario"] = null;
             return RedirectToAction("Ingresar", "Accesos");

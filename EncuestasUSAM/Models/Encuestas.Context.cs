@@ -42,6 +42,7 @@ namespace EncuestasUSAM.Models
         public virtual DbSet<PROYECTO> PROYECTO { get; set; }
         public virtual DbSet<ROL_USUARIO> ROL_USUARIO { get; set; }
         public virtual DbSet<SEXO> SEXO { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TIPO_INVESTIGACION> TIPO_INVESTIGACION { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
     }

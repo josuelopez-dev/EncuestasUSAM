@@ -12,16 +12,12 @@ namespace EncuestasUSAM.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class USUARIO
+    public partial class sysdiagrams
     {
-        public int ID_USUARIO { get; set; }
-        public string NOMBRE_USUARIO { get; set; }
-        public string PASSWORD { get; set; }
-        public Nullable<bool> ESTADO_PERMISO { get; set; }
-        public Nullable<int> ID_TIPO_USUARIO { get; set; }
-        public Nullable<int> ID_PERSONA_USUARIO { get; set; }
-    
-        public virtual PERSONA PERSONA { get; set; }
-        public virtual ROL_USUARIO ROL_USUARIO { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

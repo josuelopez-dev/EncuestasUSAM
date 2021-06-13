@@ -8,7 +8,33 @@
     @Styles.Render("~/Content/CssWizardBootstrap")
 </head>
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+             </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Session["Usuario"] != null)
+                    {
+                        @Html.ActionLink("Bienvenido ," + @HttpContext.Current.Session["Usr"].ToString(), "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Modulo ADMIN", "Index", "Home", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-user" })
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="font-size:1em;color:whitesmoke">@Html.ActionLink(" ", "Salir", "CerrarSesion", new { @class = "glyphicon glyphicon-log-in" }) </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div>
         @RenderBody()
     </div>

@@ -130,7 +130,7 @@ namespace EncuestasUSAM.Controllers
                 USUARIO objUser = new USUARIO();
                 objUser.ID_USUARIO = (int)IDUsuario;
                 objUser.NOMBRE_USUARIO = docente.NOMBRE_USUARIO;
-                objUser.PASSWORD = encoding.GetBytes(Encriptar.Encrip(docente.PASSWORD));
+                objUser.PASSWORD = docente.PASSWORD;
                 objUser.ESTADO_PERMISO = false;
                 objUser.ID_TIPO_USUARIO = 3;
                 objUser.ID_PERSONA_USUARIO = (int)IDPersona;
@@ -138,7 +138,7 @@ namespace EncuestasUSAM.Controllers
 
                 bdDatos.SaveChanges();
             }
-
+            //objUser.PASSWORD = encoding.GetBytes(Encriptar.Encrip(docente.PASSWORD));
             return Redirect(Url.Content("~/Docente/Consultar"));
         }
 
