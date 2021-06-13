@@ -15,6 +15,13 @@ namespace EncuestasUSAM.Controllers
         {
             return View();
         }
+
+        public ActionResult CerrarSesion()
+        {
+            Session["Usuario"] = null;
+            return RedirectToAction("Ingresar", "Accesos");
+        }
+
         //llenar Tipo Investigación
         public void TIPO_INVESTIGACION()
         {

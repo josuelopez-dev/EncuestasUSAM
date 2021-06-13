@@ -17,6 +17,8 @@ namespace EncuestasUSAM.Models
 
         public string NOMBRE_PROFESION { get; set; }
 
+        public string PERMISO { get; set; }
+
         // TABLA PERSONA
         public int? ID_PERSONA { get; set; }
 

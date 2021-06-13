@@ -28,9 +28,15 @@
                     {
                         @Html.ActionLink("Modulo ADMIN", "Index", "Home", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-user" })
                     }
+                    <li>@Html.ActionLink("Ciclo", "Consultar", "CICLO")</li>
+                    <li>@Html.ActionLink("Coordinador", "Consultar", "Coordinador")</li>
+                    <li>@Html.ActionLink("Docente", "Consultar", "Docente")</li>
+                    <li>@Html.ActionLink("Materia", "Consultar", "Materias")</li>
+                    <li>@Html.ActionLink("Proyecto", "Consultar", "Proyecto")</li>                    
                 </ul>
+
                 <ul class="nav navbar-nav navbar-right">
-                    <li style="font-size:1em;color:whitesmoke">@Html.ActionLink(" ", "Salir", "CerrarSesion", new { @class = "glyphicon glyphicon-log-in" }) </li>
+                    <li style="font-size:1em;color:whitesmoke">@Html.ActionLink(" ", "CerrarSesion", "Salir", new { @class = "glyphicon glyphicon-log-in" }) </li>
                 </ul>
             </div>
         </div>

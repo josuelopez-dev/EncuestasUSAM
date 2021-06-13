@@ -14,7 +14,7 @@ namespace EncuestasUSAM.Controllers
             return View();
         }
 
-        public ActionResult Salir()
+        public ActionResult CerrarSesion()
         {
             Session["Usuario"] = null;
             return RedirectToAction("Ingresar", "Accesos");

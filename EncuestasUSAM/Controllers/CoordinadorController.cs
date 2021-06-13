@@ -17,6 +17,12 @@ namespace EncuestasUSAM.Controllers
             return View();
         }
 
+        public ActionResult CerrarSesion()
+        {
+            Session["Usuario"] = null;
+            return RedirectToAction("Ingresar", "Accesos");
+        }
+
         // ENTIDAD DE LA BASE
         private ENCUESTASUSAMEntities bdDatos = new ENCUESTASUSAMEntities();
 

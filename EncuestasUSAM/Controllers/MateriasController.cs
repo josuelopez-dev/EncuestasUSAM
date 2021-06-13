@@ -15,6 +15,12 @@ namespace EncuestasUSAM.Controllers
             return View();
         }
 
+        public ActionResult CerrarSesion()
+        {
+            Session["Usuario"] = null;
+            return RedirectToAction("Ingresar", "Accesos");
+        }
+
         //llenar Carrera
         public void CARRERA()
         {

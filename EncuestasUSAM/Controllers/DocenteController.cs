@@ -17,6 +17,12 @@ namespace EncuestasUSAM.Controllers
             return View();
         }
 
+        public ActionResult CerrarSesion()
+        {
+            Session["Usuario"] = null;
+            return RedirectToAction("Ingresar", "Accesos");
+        }
+
         // ENTIDAD DE LA BASE
         private ENCUESTASUSAMEntities bdDatos = new ENCUESTASUSAMEntities();
 
@@ -159,8 +165,9 @@ namespace EncuestasUSAM.Controllers
                              CORREO_PERSONAL = pe.CORREO_PERSONAL,
                              NOMBRE_FACULTAD = f.NOMBRE_FACULTAD,
                              NOMBRE_PROFESION = p.NOMBRE_PROFESION,
-                             ESTADO_PERMISO = (bool)u.ESTADO_PERMISO,
+                             PERMISO = u.ESTADO_PERMISO == true ? "Habilitado" : u.ESTADO_PERMISO == false ? "Deshabilitado" : "Estado",
                              ID_PERSONA = d.PERSONA
+
                          }).ToList();
             }
             return View(lista);
